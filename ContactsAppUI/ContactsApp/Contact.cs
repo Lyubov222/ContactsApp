@@ -13,7 +13,7 @@ namespace ContactsApp
     {
         /// <summary>
         /// Фамилия
-        /// </summary>
+        /// </summary> 
         private string _surname;
 
         /// <summary>
@@ -97,14 +97,14 @@ namespace ContactsApp
         /// <summary>
         /// Свойства день рождения с проверкой даты
         /// </summary>
-        public DateTime Brithday
+        public DateTime Birthday
         {
             get { return _birthday; }
 
             set
             {
                 DateTime today = DateTime.Now;
-                if (Brithday.Year < 1900 || Brithday.Date > today || Brithday == null)
+                if (Birthday.Year < 1900 || Birthday.Date > today || Birthday == null)
                 {
                     throw new ArgumentException(" Исправьте дату рождения");
                 }
@@ -122,6 +122,34 @@ namespace ContactsApp
             {
                 throw new ArgumentException("Длина не должна превышать " + availableLength + "символов");
             }
+        }
+
+        /// <summary>
+        /// Конструктор контакта
+        /// </summary>
+        /// <param name="phoneNumber">Номер телефона</param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="name">Имя</param>
+        /// <param name="email">Email</param>
+        /// <param name="IdVk">ID вконтакте</param>
+        /// <param name="birthday">День рождения</param>
+        public Contact(PhoneNumber phoneNumber, string surname, string name, string email, string IdVk, DateTime birthday)
+        {
+            PhoneNumber = phoneNumber;
+            Surname = surname;
+            Name = name;
+            Email = email;
+            IDVk= IdVk;
+            Birthday = birthday;
+        }
+
+        /// <summary>
+        /// Копирование объекта
+        /// </summary>
+        /// <returns></returns>
+        public object Clone()
+        {
+            return this.MemberwiseClone();
         }
     }      
 }
