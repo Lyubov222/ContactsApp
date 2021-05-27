@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ContactsApp
 {
     /// <summary>
-    /// Класс контактов
+    /// Класс контактов 
     /// </summary>
     public class Contact : ICloneable
     {
