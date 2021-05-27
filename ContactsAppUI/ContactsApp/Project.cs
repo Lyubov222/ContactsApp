@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ContactsApp
 {
-    class Project
+    /// <summary>
+    /// Список всех контактов 
+    /// </summary>
+    public class Project
     {
+        ///
     }
 }
