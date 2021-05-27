@@ -18,7 +18,7 @@ namespace ContactsApp
         private int _number;
 
         ///<summary>
-        ///Требования к номеру телефона
+        ///Требования к номеру телефона   
         ///<summary>
        public int Numbers
         {
