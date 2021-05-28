@@ -22,7 +22,7 @@ namespace ContactsApp
         /// Путь до папки "AppData" пользователя
         /// </summary>
         public static readonly string _myPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-                                                                            "/Lyubov222/ContactsAppUI/ContactsApp";
+                                                                            "/Lyubov222/ContactsApp";
 
         public static DirectoryInfo directoryInfo = new DirectoryInfo(_myPath);
 
