@@ -61,7 +61,7 @@ namespace ContactsAppUI
             this.SurnameTextBox.Name = "SurnameTextBox";
             this.SurnameTextBox.Size = new System.Drawing.Size(260, 20);
             this.SurnameTextBox.TabIndex = 1;
-            this.SurnameTextBox.TextChanged += new System.EventHandler(this.SurnameTextBox_TextChanged);
+            this.SurnameTextBox.TextChanged += new System.EventHandler(this.SurnameTextBox_Leave);
             // 
             // NameLabel
             // 
@@ -78,6 +78,7 @@ namespace ContactsAppUI
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(260, 20);
             this.NameTextBox.TabIndex = 3;
+            this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_Leave);
             // 
             // BirthdayLabel
             // 
@@ -94,6 +95,7 @@ namespace ContactsAppUI
             this.DateBirthDay.Name = "DateBirthDay";
             this.DateBirthDay.Size = new System.Drawing.Size(260, 20);
             this.DateBirthDay.TabIndex = 5;
+            this.DateBirthDay.ValueChanged += new System.EventHandler(this.DateBirthDay_ValueChanged);
             // 
             // PhoneLabel
             // 
@@ -110,6 +112,7 @@ namespace ContactsAppUI
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(260, 20);
             this.PhoneTextBox.TabIndex = 7;
+            this.PhoneTextBox.TextChanged += new System.EventHandler(this.PhoneTextBox_Leave);
             // 
             // EmailLabel
             // 
@@ -126,6 +129,7 @@ namespace ContactsAppUI
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(260, 20);
             this.EmailTextBox.TabIndex = 9;
+            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_Leave);
             // 
             // VKLabel
             // 
@@ -142,6 +146,7 @@ namespace ContactsAppUI
             this.VKTextBox.Name = "VKTextBox";
             this.VKTextBox.Size = new System.Drawing.Size(260, 20);
             this.VKTextBox.TabIndex = 11;
+            this.VKTextBox.TextChanged += new System.EventHandler(this.VKTextBox_TextChanged);
             // 
             // buttonOK
             // 
@@ -161,6 +166,7 @@ namespace ContactsAppUI
             this.buttonCancel.TabIndex = 13;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // ContactForm
             // 

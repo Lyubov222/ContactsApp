@@ -98,22 +98,31 @@ namespace ContactsAppUI
 
         }
 
-        private void SurnameTextBox_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Проверка на ввод фамилии
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SurnameTextBox_Leave(object sender, EventArgs e)
         {
-
+            var check = SurnameTextBox.Text.Length >= 50;
+            for (var i=0; i< SurnameTextBox.TextLength; i++)
+            {
+                foreach (var t in _inCorrectSymbols.Where(t =>SurnameTextBox.Text[i]==t))
+                {
+                    check = true;
+                }
+            }
+            SurnameTextBox.BackColor = check ? IncorrectValue : CorrectValue;
         }
 
         private void SurnameLabel_Click(object sender, EventArgs e)
         {
-            var check = SurnameTextBox.Text.Length >= 50;
-            for (var i=0; i<SurnameTextBox.TextLength; i++)
-            {
-                
-            }
+            
         }
 
         /// <summary>
-        /// Реакция нажатия книпки OK
+        /// Реакция нажатие кнопки OK
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -141,5 +150,82 @@ namespace ContactsAppUI
             }
         }
 
+        /// <summary>
+        /// Реакция на нажатие кнопки Cancel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            _contact = null;
+            Close();
+        }
+
+        /// <summary>
+        /// Проверка ввода имени
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NameTextBox_Leave(object sender, EventArgs e)
+        {
+            var check = NameTextBox.Text.Length >= 15;
+            for (var i=0; i<NameTextBox.TextLength; i++)
+            {
+                foreach (var t in _inCorrectSymbols.Where(t=> NameTextBox.Text[i]==t))
+                {
+                    check = true;
+                }
+            }
+            NameTextBox.BackColor = check ? IncorrectValue : CorrectValue;
+        }
+
+        /// <summary>
+        /// Проверка ввода даты рождения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DateBirthDay_ValueChanged(object sender, EventArgs e)
+        {
+            if (DateBirthDay.Value.Year >= 1900 && DateBirthDay.Value<= DateTime.Now)
+            {
+                BirthdayLabel.Text = "Birthday";
+                BirthdayLabel.ForeColor = Color.Black;
+            }
+            else
+            {
+                BirthdayLabel.Text = "Error";
+                BirthdayLabel.ForeColor = IncorrectValue;
+            }
+        }
+
+        /// <summary>
+        /// Проверка на ввод номера телефона
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PhoneTextBox_Leave(object sender, EventArgs e)
+        {
+            PhoneTextBox.BackColor = PhoneTextBox.Text.Length != 11 ? IncorrectValue : CorrectValue;
+            if (PhoneTextBox.Text.StartsWith("7"))
+            {
+                return;
+            }
+            PhoneTextBox.BackColor = IncorrectValue;
+        }
+
+        /// <summary>
+        ///  Проверка на ввод почты
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EmailTextBox_Leave(object sender, EventArgs e)
+        {
+            EmailTextBox.BackColor = EmailTextBox.Text.Contains("@") ? CorrectValue : IncorrectValue;
+        }
+
+        private void VKTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
