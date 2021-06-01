@@ -15,25 +15,26 @@ namespace ContactsApp
         /// <summary>
         /// Номер телефона
         /// </summary>
-        private int _number;
+        private long _number;
 
         ///<summary>
         ///Требования к номеру телефона   
         ///<summary>
-       public int Numbers
+       public long Number
         {
             get { return _number; }
             set
             {
-                if (!Numbers.ToString().StartsWith("7"))
+                if (!value.ToString().StartsWith("7"))
                 {
                     throw new ArgumentException("Номер должен начинаться с 7!");
                 }
 
-                if (Numbers.ToString().Length != 11)
+                if (value.ToString().Length != 11)
                 {
                     throw new ArgumentException("Номер должен состоять из 11 цифр!");
                 }
+                _number = value;
             }
            
         }

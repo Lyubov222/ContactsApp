@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
+
 namespace ContactsApp
 {
     /// <summary>
@@ -21,25 +22,26 @@ namespace ContactsApp
         /// <summary>
         /// Путь до папки "AppData" пользователя
         /// </summary>
-        public static readonly string _myPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-                                                                            "/Lyubov222/ContactsApp";
-
-        public static DirectoryInfo directoryInfo = new DirectoryInfo(_myPath);
+        public static readonly string DevelopPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+                                                                             @"\Lyubov222\ContactsApp\";
+        public static readonly string FileName = @"project.json";
 
         /// <summary>
         /// Сохранение данных  в JSON-файл
         /// </summary>
         /// <param name="project">сериализуемый объект(список контактов)</param>
-        /// <param name="NameOfFile">Имя сохраняемого файла</param>
-        public static void SaveToFile(Project project, string NameOfFile)
+        /// <param name="fileName">Имя сохраняемого файла</param>
+        public static void SaveToFile(Project project, string fileName)
         {
-            if (!directoryInfo.Exists)
+            DirectoryInfo path = new DirectoryInfo (System.IO.Path.GetDirectoryName(fileName));
+
+            if (!path.Exists)
             {
-                directoryInfo.Create();
+                path.Create();
             }
 
-            using (StreamWriter sw = new StreamWriter(_myPath + @NameOfFile))
-            using (JsonWriter writer = new JsonTextWriter(sw))
+            using (StreamWriter sw = new StreamWriter(fileName)) //класс запись файлов
+            using (JsonWriter writer = new JsonTextWriter(sw)) 
             {
                 _serializ.Serialize(writer, project);
             }
@@ -49,17 +51,17 @@ namespace ContactsApp
         /// Считывание данных контактов из файла
         /// Файл берется из папки "Мои документы"
         /// </summary>
-        /// <param name="NameOfFile">Имя JSON-файла с данными</param>
-        /// <returns></returns>
-        public static Project LoadFromFile(string path, string NameOfFile)
+        /// <param name="fileName">Имя JSON-файла с данными</param>
+        public static Project LoadFromFile(string fileName)
         {
-            if (!directoryInfo.Exists)
+            DirectoryInfo path = new DirectoryInfo(System.IO.Path.GetDirectoryName(fileName));
+
+            if (!path.Exists)
             {
-                directoryInfo.Create();
                 return new Project();
             }
 
-            if (!File.Exists(path + NameOfFile))
+            if (!File.Exists(fileName))
             {
                 return new Project();
             }
@@ -67,7 +69,7 @@ namespace ContactsApp
             Project project = null;
             try
             {
-                using (StreamReader sr = new StreamReader(_myPath + @NameOfFile))
+                using (StreamReader sr = new StreamReader(fileName))
                 using (JsonReader reader = new JsonTextReader(sr))
                 {
                     project = (Project)_serializ.Deserialize<Project>(reader);

@@ -51,8 +51,8 @@ namespace ContactsApp
 
             set
             {
-                CheckingLength(Surname, 50);
-                Surname = Surname.ToUpper()[0] + Surname.Substring(1);
+                CheckLength(value, 50);
+                _surname = value.ToUpper()[0] + value.Substring(1);
             }
         }
 
@@ -66,8 +66,8 @@ namespace ContactsApp
 
             set
             {
-                CheckingLength(Name, 50);
-                Name = Name.ToUpper()[0] + Name.Substring(1);
+                CheckLength(value, 50);
+                _name = value.ToUpper()[0] + value.Substring(1);
             }
         }
 
@@ -77,7 +77,12 @@ namespace ContactsApp
         public string Email
         {
             get { return _email; }
-            set { CheckingLength(Email, 50); }
+
+            set 
+            { 
+                CheckLength(value, 50);
+                _email = value;
+            }
 
         }
 
@@ -90,7 +95,8 @@ namespace ContactsApp
             
             set
             {
-                CheckingLength(IDVk, 15);
+                CheckLength(value, 15);
+                _IDvk = value;
             }
         }
 
@@ -104,10 +110,12 @@ namespace ContactsApp
             set
             {
                 DateTime today = DateTime.Now;
-                if (Birthday.Year < 1900 || Birthday.Date > today || Birthday == null)
+
+                if (value.Year < 1900 || value.Date > today || value == null)
                 {
-                    throw new ArgumentException(" Исправьте дату рождения");
+                    throw new ArgumentException(" Исправьте дату рождения ");
                 }
+                _birthday = value;
             }
         }
 
@@ -115,14 +123,20 @@ namespace ContactsApp
         /// Проверка длины передаваемой строки на допустимый размер
         /// </summary>
         /// <param name="str">Принимаемая строка</param>
-        /// <param name="availableLength"">Допустимая длина строки</param>
-        void CheckingLength (string str, int availableLength)
+        /// <param name="length"">длина строки</param>
+        void CheckLength (string str, int length)
         {
-            if (str.Length>availableLength)
+            if (str.Length> length)
             {
-                throw new ArgumentException("Длина не должна превышать " + availableLength + "символов");
+                throw new ArgumentException("Длина не должна превышать " + length + "символов");
             }
+
         }
+
+        /// <summary>
+        /// конструктор класса по умолчанию
+        /// </summary>
+        public Contact() { }
 
         /// <summary>
         /// Конструктор контакта
