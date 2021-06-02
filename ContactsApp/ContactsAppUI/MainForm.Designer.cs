@@ -33,22 +33,22 @@ namespace ContactsAppUI
             this.FindTextBox = new System.Windows.Forms.TextBox();
             this.ContactsListBox = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.SurnameLabel = new System.Windows.Forms.Label();
-            this.SurnameTextBox = new System.Windows.Forms.TextBox();
-            this.NameLabel = new System.Windows.Forms.Label();
-            this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.BirthdayLabel = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.DateBirthDay = new System.Windows.Forms.DateTimePicker();
-            this.PhoneLabel = new System.Windows.Forms.Label();
-            this.PhoneTextBox = new System.Windows.Forms.TextBox();
-            this.EmailLabel = new System.Windows.Forms.Label();
-            this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.VkLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.BDayLabel = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.VKTextBox = new System.Windows.Forms.TextBox();
+            this.VkLabel = new System.Windows.Forms.Label();
+            this.EmailTextBox = new System.Windows.Forms.TextBox();
+            this.EmailLabel = new System.Windows.Forms.Label();
+            this.PhoneTextBox = new System.Windows.Forms.TextBox();
+            this.PhoneLabel = new System.Windows.Forms.Label();
+            this.DateBirthDay = new System.Windows.Forms.DateTimePicker();
+            this.BirthdayLabel = new System.Windows.Forms.Label();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.SurnameTextBox = new System.Windows.Forms.TextBox();
+            this.SurnameLabel = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,8 +59,8 @@ namespace ContactsAppUI
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,126 +101,6 @@ namespace ContactsAppUI
             this.panel1.Size = new System.Drawing.Size(776, 405);
             this.panel1.TabIndex = 3;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.VkLabel);
-            this.panel2.Controls.Add(this.EmailTextBox);
-            this.panel2.Controls.Add(this.EmailLabel);
-            this.panel2.Controls.Add(this.PhoneTextBox);
-            this.panel2.Controls.Add(this.PhoneLabel);
-            this.panel2.Controls.Add(this.DateBirthDay);
-            this.panel2.Controls.Add(this.BirthdayLabel);
-            this.panel2.Controls.Add(this.NameTextBox);
-            this.panel2.Controls.Add(this.NameLabel);
-            this.panel2.Controls.Add(this.SurnameTextBox);
-            this.panel2.Controls.Add(this.SurnameLabel);
-            this.panel2.Location = new System.Drawing.Point(253, 8);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(433, 217);
-            this.panel2.TabIndex = 3;
-            // 
-            // SurnameLabel
-            // 
-            this.SurnameLabel.AutoSize = true;
-            this.SurnameLabel.Location = new System.Drawing.Point(9, 11);
-            this.SurnameLabel.Name = "SurnameLabel";
-            this.SurnameLabel.Size = new System.Drawing.Size(52, 13);
-            this.SurnameLabel.TabIndex = 0;
-            this.SurnameLabel.Text = "Surname:";
-            this.SurnameLabel.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // SurnameTextBox
-            // 
-            this.SurnameTextBox.Location = new System.Drawing.Point(70, 4);
-            this.SurnameTextBox.Name = "SurnameTextBox";
-            this.SurnameTextBox.Size = new System.Drawing.Size(360, 20);
-            this.SurnameTextBox.TabIndex = 4;
-            this.SurnameTextBox.TextChanged += new System.EventHandler(this.SurnameTextBox_TextChanged);
-            // 
-            // NameLabel
-            // 
-            this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(23, 42);
-            this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(38, 13);
-            this.NameLabel.TabIndex = 5;
-            this.NameLabel.Text = "Name:";
-            this.NameLabel.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // NameTextBox
-            // 
-            this.NameTextBox.Location = new System.Drawing.Point(70, 35);
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(360, 20);
-            this.NameTextBox.TabIndex = 6;
-            this.NameTextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-            // 
-            // BirthdayLabel
-            // 
-            this.BirthdayLabel.AutoSize = true;
-            this.BirthdayLabel.Location = new System.Drawing.Point(13, 76);
-            this.BirthdayLabel.Name = "BirthdayLabel";
-            this.BirthdayLabel.Size = new System.Drawing.Size(48, 13);
-            this.BirthdayLabel.TabIndex = 7;
-            this.BirthdayLabel.Text = "Birthday:";
-            this.BirthdayLabel.Click += new System.EventHandler(this.BirthdayLabel_Click);
-            // 
-            // DateBirthDay
-            // 
-            this.DateBirthDay.Location = new System.Drawing.Point(70, 69);
-            this.DateBirthDay.Name = "DateBirthDay";
-            this.DateBirthDay.Size = new System.Drawing.Size(360, 20);
-            this.DateBirthDay.TabIndex = 8;
-            // 
-            // PhoneLabel
-            // 
-            this.PhoneLabel.AutoSize = true;
-            this.PhoneLabel.Location = new System.Drawing.Point(20, 109);
-            this.PhoneLabel.Name = "PhoneLabel";
-            this.PhoneLabel.Size = new System.Drawing.Size(41, 13);
-            this.PhoneLabel.TabIndex = 9;
-            this.PhoneLabel.Text = "Phone:";
-            // 
-            // PhoneTextBox
-            // 
-            this.PhoneTextBox.Location = new System.Drawing.Point(70, 102);
-            this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(360, 20);
-            this.PhoneTextBox.TabIndex = 10;
-            // 
-            // EmailLabel
-            // 
-            this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(23, 143);
-            this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(38, 13);
-            this.EmailLabel.TabIndex = 11;
-            this.EmailLabel.Text = "E-mail:";
-            // 
-            // EmailTextBox
-            // 
-            this.EmailTextBox.Location = new System.Drawing.Point(70, 136);
-            this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(360, 20);
-            this.EmailTextBox.TabIndex = 12;
-            // 
-            // VkLabel
-            // 
-            this.VkLabel.AutoSize = true;
-            this.VkLabel.Location = new System.Drawing.Point(16, 176);
-            this.VkLabel.Name = "VkLabel";
-            this.VkLabel.Size = new System.Drawing.Size(45, 13);
-            this.VkLabel.TabIndex = 13;
-            this.VkLabel.Text = "vk.com:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(70, 169);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(360, 20);
-            this.textBox1.TabIndex = 14;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.BDayLabel);
@@ -237,6 +117,126 @@ namespace ContactsAppUI
             this.BDayLabel.Size = new System.Drawing.Size(36, 13);
             this.BDayLabel.TabIndex = 0;
             this.BDayLabel.Text = "BDAY";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.VKTextBox);
+            this.panel2.Controls.Add(this.VkLabel);
+            this.panel2.Controls.Add(this.EmailTextBox);
+            this.panel2.Controls.Add(this.EmailLabel);
+            this.panel2.Controls.Add(this.PhoneTextBox);
+            this.panel2.Controls.Add(this.PhoneLabel);
+            this.panel2.Controls.Add(this.DateBirthDay);
+            this.panel2.Controls.Add(this.BirthdayLabel);
+            this.panel2.Controls.Add(this.NameTextBox);
+            this.panel2.Controls.Add(this.NameLabel);
+            this.panel2.Controls.Add(this.SurnameTextBox);
+            this.panel2.Controls.Add(this.SurnameLabel);
+            this.panel2.Location = new System.Drawing.Point(253, 8);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(433, 217);
+            this.panel2.TabIndex = 3;
+            // 
+            // VKTextBox
+            // 
+            this.VKTextBox.Location = new System.Drawing.Point(70, 169);
+            this.VKTextBox.Name = "VKTextBox";
+            this.VKTextBox.Size = new System.Drawing.Size(360, 20);
+            this.VKTextBox.TabIndex = 14;
+            // 
+            // VkLabel
+            // 
+            this.VkLabel.AutoSize = true;
+            this.VkLabel.Location = new System.Drawing.Point(16, 176);
+            this.VkLabel.Name = "VkLabel";
+            this.VkLabel.Size = new System.Drawing.Size(45, 13);
+            this.VkLabel.TabIndex = 13;
+            this.VkLabel.Text = "vk.com:";
+            // 
+            // EmailTextBox
+            // 
+            this.EmailTextBox.Location = new System.Drawing.Point(70, 136);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.Size = new System.Drawing.Size(360, 20);
+            this.EmailTextBox.TabIndex = 12;
+            // 
+            // EmailLabel
+            // 
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Location = new System.Drawing.Point(23, 143);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(38, 13);
+            this.EmailLabel.TabIndex = 11;
+            this.EmailLabel.Text = "E-mail:";
+            // 
+            // PhoneTextBox
+            // 
+            this.PhoneTextBox.Location = new System.Drawing.Point(70, 102);
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.Size = new System.Drawing.Size(360, 20);
+            this.PhoneTextBox.TabIndex = 10;
+            // 
+            // PhoneLabel
+            // 
+            this.PhoneLabel.AutoSize = true;
+            this.PhoneLabel.Location = new System.Drawing.Point(20, 109);
+            this.PhoneLabel.Name = "PhoneLabel";
+            this.PhoneLabel.Size = new System.Drawing.Size(41, 13);
+            this.PhoneLabel.TabIndex = 9;
+            this.PhoneLabel.Text = "Phone:";
+            // 
+            // DateBirthDay
+            // 
+            this.DateBirthDay.Location = new System.Drawing.Point(70, 69);
+            this.DateBirthDay.Name = "DateBirthDay";
+            this.DateBirthDay.Size = new System.Drawing.Size(360, 20);
+            this.DateBirthDay.TabIndex = 8;
+            // 
+            // BirthdayLabel
+            // 
+            this.BirthdayLabel.AutoSize = true;
+            this.BirthdayLabel.Location = new System.Drawing.Point(13, 76);
+            this.BirthdayLabel.Name = "BirthdayLabel";
+            this.BirthdayLabel.Size = new System.Drawing.Size(48, 13);
+            this.BirthdayLabel.TabIndex = 7;
+            this.BirthdayLabel.Text = "Birthday:";
+            this.BirthdayLabel.Click += new System.EventHandler(this.BirthdayLabel_Click);
+            // 
+            // NameTextBox
+            // 
+            this.NameTextBox.Location = new System.Drawing.Point(70, 35);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(360, 20);
+            this.NameTextBox.TabIndex = 6;
+            this.NameTextBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Location = new System.Drawing.Point(23, 42);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(38, 13);
+            this.NameLabel.TabIndex = 5;
+            this.NameLabel.Text = "Name:";
+            this.NameLabel.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // SurnameTextBox
+            // 
+            this.SurnameTextBox.Location = new System.Drawing.Point(70, 4);
+            this.SurnameTextBox.Name = "SurnameTextBox";
+            this.SurnameTextBox.Size = new System.Drawing.Size(360, 20);
+            this.SurnameTextBox.TabIndex = 4;
+            this.SurnameTextBox.TextChanged += new System.EventHandler(this.SurnameTextBox_TextChanged);
+            // 
+            // SurnameLabel
+            // 
+            this.SurnameLabel.AutoSize = true;
+            this.SurnameLabel.Location = new System.Drawing.Point(9, 11);
+            this.SurnameLabel.Name = "SurnameLabel";
+            this.SurnameLabel.Size = new System.Drawing.Size(52, 13);
+            this.SurnameLabel.TabIndex = 0;
+            this.SurnameLabel.Text = "Surname:";
+            this.SurnameLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // menuStrip1
             // 
@@ -262,7 +262,7 @@ namespace ContactsAppUI
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -288,12 +288,14 @@ namespace ContactsAppUI
             this.editContactToolStripMenuItem.Name = "editContactToolStripMenuItem";
             this.editContactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editContactToolStripMenuItem.Text = "Edit Contact";
+            this.editContactToolStripMenuItem.Click += new System.EventHandler(this.editContactToolStripMenuItem_Click);
             // 
             // removeContactToolStripMenuItem
             // 
             this.removeContactToolStripMenuItem.Name = "removeContactToolStripMenuItem";
             this.removeContactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeContactToolStripMenuItem.Text = "Remove Contact";
+            this.removeContactToolStripMenuItem.Click += new System.EventHandler(this.removeContactToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -308,6 +310,7 @@ namespace ContactsAppUI
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -322,10 +325,10 @@ namespace ContactsAppUI
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -351,7 +354,7 @@ namespace ContactsAppUI
         private System.Windows.Forms.Label PhoneLabel;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label BDayLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox VKTextBox;
         private System.Windows.Forms.Label VkLabel;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.Label EmailLabel;

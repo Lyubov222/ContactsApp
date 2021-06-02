@@ -172,7 +172,7 @@ namespace ContactsAppUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 296);
+            this.ClientSize = new System.Drawing.Size(344, 271);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.VKTextBox);
@@ -187,6 +187,8 @@ namespace ContactsAppUI
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.SurnameTextBox);
             this.Controls.Add(this.SurnameLabel);
+            this.MaximumSize = new System.Drawing.Size(360, 310);
+            this.MinimumSize = new System.Drawing.Size(360, 310);
             this.Name = "ContactForm";
             this.Text = "EditForm";
             this.Load += new System.EventHandler(this.ContactForm_Load);

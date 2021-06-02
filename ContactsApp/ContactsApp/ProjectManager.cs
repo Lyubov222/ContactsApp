@@ -22,10 +22,23 @@ namespace ContactsApp
         /// <summary>
         /// Путь до папки "AppData" пользователя
         /// </summary>
-        public static readonly string DevelopPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-                                                                             @"\Lyubov222\ContactsApp\";
-        public static readonly string FileName = @"project.json";
+        // public static readonly string DefaultPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+        //  @"\Lyubov222\ContactsApp\";
+        // public static readonly string FileName = @"project.json";
 
+        /// <summary>
+        /// Переменная хранящая путь к сохранению файла сериализации
+        /// </summary>
+        public static string DefaultFilename
+        {
+            get
+            {
+                var appDataFolder =
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                var defaultFilename = appDataFolder + $@"\Lyubov222\ContactsApp\project.json";
+                return defaultFilename;
+            }
+        }
         /// <summary>
         /// Сохранение данных  в JSON-файл
         /// </summary>
