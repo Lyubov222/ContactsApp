@@ -38,5 +38,10 @@ namespace ContactsApp
             }
            
         }
+
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
+        public PhoneNumber() { }
     }
 }

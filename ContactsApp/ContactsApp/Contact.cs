@@ -24,7 +24,7 @@ namespace ContactsApp
         ///<summary>
         /// Номер телефона
         /// </summary>
-        public PhoneNumber PhoneNumber { get; set; }
+        public PhoneNumber PhoneNumber { get; set; } = new PhoneNumber();
 
         ///<summary>
         /// Дата рождения
@@ -126,7 +126,11 @@ namespace ContactsApp
         /// <param name="length"">длина строки</param>
         void CheckLength (string str, int length)
         {
-            if (str.Length> length)
+            if (string.IsNullOrEmpty(str))
+            {
+                throw new ArgumentException("Ошибка. Пустая строка");
+            }
+            if (str.Length > length)
             {
                 throw new ArgumentException("Длина не должна превышать " + length + "символов");
             }
@@ -147,7 +151,8 @@ namespace ContactsApp
         /// <param name="email">Email</param>
         /// <param name="IdVk">ID вконтакте</param>
         /// <param name="birthday">День рождения</param>
-        public Contact(PhoneNumber phoneNumber, string surname, string name, string email, string IdVk, DateTime birthday)
+        public Contact(PhoneNumber phoneNumber, string surname, string name, string email, 
+                       string IdVk, DateTime birthday)
         {
             PhoneNumber = phoneNumber;
             Surname = surname;

@@ -85,11 +85,11 @@ namespace ContactsAppUI
         ///<returns> true - если проверка прошла успешно, иначе false </returns>
         private bool CheckTextBox()
         {
-            return SurnameTextBox.Text != null &&
-                   NameTextBox.Text != null &&
-                   _isCorrectContact != false &&
-                   PhoneTextBox.Text.Length == 11 &&
-                   NameTextBox.Text != string.Empty &&
+            return NameTextBox.Text != null &&
+                   SurnameTextBox.Text != null && 
+                   _isCorrectContact == false && 
+                   PhoneTextBox.Text.Length == 11 && 
+                   NameTextBox.Text != string.Empty && 
                    SurnameTextBox.Text != string.Empty;
         }
 
@@ -168,10 +168,10 @@ namespace ContactsAppUI
         /// <param name="e"></param>
         private void NameTextBox_Leave(object sender, EventArgs e)
         {
-            var check = NameTextBox.Text.Length >= 15;
+            var check = NameTextBox.Text.Length >= 50;
             for (var i=0; i<NameTextBox.TextLength; i++)
             {
-                foreach (var t in _inCorrectSymbols.Where(t=> NameTextBox.Text[i]==t))
+                foreach (var t in _inCorrectSymbols.Where(t => NameTextBox.Text[i] == t))
                 {
                     check = true;
                 }
@@ -186,7 +186,7 @@ namespace ContactsAppUI
         /// <param name="e"></param>
         private void DateBirthDay_ValueChanged(object sender, EventArgs e)
         {
-            if (DateBirthDay.Value.Year >= 1900 && DateBirthDay.Value<= DateTime.Now)
+            if (DateBirthDay.Value.Year >= 1900 && DateBirthDay.Value <= DateTime.Now)
             {
                 BirthdayLabel.Text = "Birthday";
                 BirthdayLabel.ForeColor = Color.Black;

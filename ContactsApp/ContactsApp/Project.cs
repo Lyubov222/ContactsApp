@@ -35,5 +35,16 @@ namespace ContactsApp
             return string.Join(",", listContacts.Select(contact => contact.Surname).ToList());
         }
 
+        /// <summary>
+        /// Осуществляет поиск контактов
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns>Контакты содержащие подстроку</returns>
+        public List<Contact> GetByNameOrSurname(string text)
+        {
+            text = text.ToLower();
+            return Contacts.FindAll(First => First.Surname.ToLower().Contains(text) ||
+                                             First.Name.ToLower().Contains(text));
+        }
     }
 }

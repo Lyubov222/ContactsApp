@@ -34,20 +34,9 @@ namespace ContactsAppUI
         public MainForm()
         {
             InitializeComponent();
-            _project = ProjectManager.LoadFromFile(_defaultFileName);
+            _project = ProjectManager.LoadFromFile(_defaultFileName, "project.json");
             _project.SortList();
             CheckBirthdayToday();
-            /* PhoneNumber phone = new PhoneNumber
-             {
-                 Number = 79617444824
-             };
-             Contact contact1 = new Contact(phone, "Pan", "Luba", "PPPP", "id2343", new DateTime(2000, 3, 19));
-             Project project = new Project();
-             project.Contacts.Add(contact1);
-             string path = System.IO.Path.Combine(ProjectManager.DevelopPath + ProjectManager.FileName);
-             ProjectManager.SaveToFile(project, path);
-             project = ProjectManager.LoadFromFile(path);*/
-
         }
 
         /// <summary>
@@ -59,9 +48,9 @@ namespace ContactsAppUI
             if (listBirthday != "")
             {
                 BirthdayPanel.Visible = true;
-                BirthDateLabel.Text = "Сегодня день рождения: ";
+                BDayLabel.Text = "Сегодня день рождения: ";
                 var birthdayLabelText = listBirthday;
-                BirthDateLabel.Text += birthdayLabelText;
+                BDayLabel.Text += birthdayLabelText;
             }
             else
             {
@@ -92,10 +81,10 @@ namespace ContactsAppUI
             {
                 NameTextBox.Text = "";
                 SurnameTextBox.Text = "";
-                DateBirthDay.Value = DateTime.Today;
                 EmailTextBox.Text = "";
                 VKTextBox.Text = "";
                 PhoneTextBox.Text = "";
+                DateBirthDay.Value = DateTime.Today;
             }
         }
 
@@ -130,7 +119,7 @@ namespace ContactsAppUI
         /// </summary>
         private void SaveToFile()
         {
-            ProjectManager.SaveToFile(_project, _defaultFileName);
+            ProjectManager.SaveToFile(_project, _defaultFileName, "project.json");
         }
 
         /// <summary>
@@ -199,8 +188,7 @@ namespace ContactsAppUI
             {
                 return;
             }
-            _project.Contacts[_project.Contacts.
-                IndexOf(_findedContacts[selectedIndex])] = form.Contact;
+            _project.Contacts[_project.Contacts.IndexOf(_findedContacts[selectedIndex])] = form.Contact;
             _findedContacts[selectedIndex] = form.Contact;
             UpdateData();
         }
@@ -265,12 +253,21 @@ namespace ContactsAppUI
             AddContact();
         }
 
-
+        /// <summary>
+        /// Редактирование контакта через ToolStripMenu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void editContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditContact();
         }
 
+        /// <summary>
+        /// Удаление контакта через ToolStripMenu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void removeContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeleteContact();
@@ -280,6 +277,91 @@ namespace ContactsAppUI
         {
             var aboutForm = new AboutForm();
             aboutForm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Метод, реализующий поиск контактов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FindTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ClearData();
+            foreach (var t in _project.GetByNameOrSurname(FindTextBox.Text))
+            {
+                _findedContacts.Add(t);
+                ContactsListBox.Items.Add(t.Surname);
+            }
+            IsCorrectContent();
+        }
+         
+        //TODO шо за параша????????????????????????
+        /// <summary>
+        /// Обновление списка контактов
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ContactsForm_Load(object sender, EventArgs e)
+        {
+            foreach (var t in _project.Contacts)
+            {
+                ContactsListBox.Items.Add(t.Surname);
+                _findedContacts.Add(t);
+            }
+        }
+
+        private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IsCorrectContent();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Добавление контакта 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            AddContact();
+        }
+
+        /// <summary>
+        /// Редактирование контакта 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            EditContact();
+        }
+
+        /// <summary>
+        /// Удаление контакта 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+            DeleteContact();
+        }
+
+        /// <summary>
+        /// Метод, реализующий удаление контакта по нажатию на клавишу Delete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ContactsListBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Delete)
+            {
+                return;
+            }
+            DeleteContact();
         }
     }
 }

@@ -15,18 +15,6 @@ namespace ContactsApp
     public static class ProjectManager
     {
         /// <summary>
-        /// Serializer
-        /// </summary>
-        private static readonly JsonSerializer _serializ = new JsonSerializer();
-
-        /// <summary>
-        /// Путь до папки "AppData" пользователя
-        /// </summary>
-        // public static readonly string DefaultPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-        //  @"\Lyubov222\ContactsApp\";
-        // public static readonly string FileName = @"project.json";
-
-        /// <summary>
         /// Переменная хранящая путь к сохранению файла сериализации
         /// </summary>
         public static string DefaultFilename
@@ -35,8 +23,8 @@ namespace ContactsApp
             {
                 var appDataFolder =
                     Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                var defaultFilename = appDataFolder + $@"\Lyubov222\ContactsApp\project.json";
-                return defaultFilename;
+                var defaultFileName = appDataFolder + $@"\Lyubov222\ContactsApp\project.json";
+                return defaultFileName;
             }
         }
         /// <summary>
@@ -44,61 +32,53 @@ namespace ContactsApp
         /// </summary>
         /// <param name="project">сериализуемый объект(список контактов)</param>
         /// <param name="fileName">Имя сохраняемого файла</param>
-        public static void SaveToFile(Project project, string fileName)
+        public static void SaveToFile(Project project, string path, string fileName)
         {
-            DirectoryInfo path = new DirectoryInfo (System.IO.Path.GetDirectoryName(fileName));
-
-            if (!path.Exists)
+            if (!File.Exists(path))
             {
-                path.Create();
+                Directory.CreateDirectory(path);
             }
-
-            using (StreamWriter sw = new StreamWriter(fileName)) //класс запись файлов
-            using (JsonWriter writer = new JsonTextWriter(sw)) 
+            var serializer = new JsonSerializer()
             {
-                _serializ.Serialize(writer, project);
+                Formatting = Formatting.Indented,
+                TypeNameHandling = TypeNameHandling.All
+            };
+            using (var sw = new StreamWriter(path + fileName))
+            using (var writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, project);
             }
         }
-
         /// <summary>
         /// Считывание данных контактов из файла
         /// Файл берется из папки "Мои документы"
         /// </summary>
         /// <param name="fileName">Имя JSON-файла с данными</param>
-        public static Project LoadFromFile(string fileName)
+        public static Project LoadFromFile(string path, string fileName)
         {
-            DirectoryInfo path = new DirectoryInfo(System.IO.Path.GetDirectoryName(fileName));
-
-            if (!path.Exists)
+            if (!File.Exists(path + fileName))
             {
                 return new Project();
             }
 
-            if (!File.Exists(fileName))
+            var serializer = new JsonSerializer()
             {
-                return new Project();
-            }
-
-            Project project = null;
+                Formatting = Formatting.Indented,
+                TypeNameHandling = TypeNameHandling.All
+            };
             try
             {
-                using (StreamReader sr = new StreamReader(fileName))
-                using (JsonReader reader = new JsonTextReader(sr))
+                using (var sr = new StreamReader(path + fileName))
+                using (var reader = new JsonTextReader(sr))
                 {
-                    project = (Project)_serializ.Deserialize<Project>(reader);
-                }
-
-                if (project == null)
-                {
-                    return new Project();
+                    var project = serializer.Deserialize<Project>(reader);
+                    return project ?? new Project(); // ?? возвращает значение своего операнда слева, если его значение не равно null
                 }
             }
-            catch (Exception e)
+            catch
             {
                 return new Project();
             }
-
-            return project;
         }
 
     }
