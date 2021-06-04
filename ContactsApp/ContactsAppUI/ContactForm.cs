@@ -93,11 +93,6 @@ namespace ContactsAppUI
                    SurnameTextBox.Text != string.Empty;
         }
 
-        private void ContactForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// Проверка на ввод фамилии
         /// </summary>
@@ -114,11 +109,6 @@ namespace ContactsAppUI
                 }
             }
             SurnameTextBox.BackColor = check ? IncorrectValue : CorrectValue;
-        }
-
-        private void SurnameLabel_Click(object sender, EventArgs e)
-        {
-            
         }
 
         /// <summary>
@@ -221,11 +211,6 @@ namespace ContactsAppUI
         private void EmailTextBox_Leave(object sender, EventArgs e)
         {
             EmailTextBox.BackColor = EmailTextBox.Text.Contains("@") ? CorrectValue : IncorrectValue;
-        }
-
-        private void VKTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

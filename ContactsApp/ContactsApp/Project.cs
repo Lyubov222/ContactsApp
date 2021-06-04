@@ -21,7 +21,7 @@ namespace ContactsApp
         /// </summary>
         public void SortList()
         {
-            Contacts.Sort();
+            Contacts = Contacts.OrderBy(t => t.Surname).ToList();
         }
 
         /// <summary>

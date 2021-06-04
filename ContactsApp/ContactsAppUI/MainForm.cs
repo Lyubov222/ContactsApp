@@ -192,98 +192,31 @@ namespace ContactsAppUI
             _findedContacts[selectedIndex] = form.Contact;
             UpdateData();
         }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            UpdateData();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BirthdayLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SurnameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// Выход из приложения
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-        /// <summary>
-        /// Добарление контакта через ToolStripMenu
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void addContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddContact();
         }
-
-        /// <summary>
-        /// Редактирование контакта через ToolStripMenu
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void editContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditContact();
         }
-
-        /// <summary>
-        /// Удаление контакта через ToolStripMenu
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void removeContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeleteContact();
         }
-
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var aboutForm = new AboutForm();
             aboutForm.ShowDialog();
         }
-
-        /// <summary>
-        /// Метод, реализующий поиск контактов
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
             ClearData();
@@ -294,67 +227,22 @@ namespace ContactsAppUI
             }
             IsCorrectContent();
         }
-         
-        //TODO шо за параша????????????????????????
-        /// <summary>
-        /// Обновление списка контактов
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ContactsForm_Load(object sender, EventArgs e)
-        {
-            foreach (var t in _project.Contacts)
-            {
-                ContactsListBox.Items.Add(t.Surname);
-                _findedContacts.Add(t);
-            }
-        }
-
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             IsCorrectContent();
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// Добавление контакта 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void AddButton_Click(object sender, EventArgs e)
         {
             AddContact();
         }
-
-        /// <summary>
-        /// Редактирование контакта 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void EditButton_Click(object sender, EventArgs e)
         {
             EditContact();
         }
-
-        /// <summary>
-        /// Удаление контакта 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void RemoveButton_Click(object sender, EventArgs e)
         {
             DeleteContact();
         }
-
-        /// <summary>
-        /// Метод, реализующий удаление контакта по нажатию на клавишу Delete
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void ContactsListBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Delete)
@@ -362,6 +250,14 @@ namespace ContactsAppUI
                 return;
             }
             DeleteContact();
+        }
+        private void DateBirthDay_ValueChanged(object sender, EventArgs e)
+        {
+            if(ContactsListBox.SelectedIndex == -1)
+            {
+                return;
+            }
+            DateBirthDay.Value = _findedContacts[ContactsListBox.SelectedIndex].Birthday;
         }
     }
 }
