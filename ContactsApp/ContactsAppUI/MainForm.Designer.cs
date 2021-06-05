@@ -120,7 +120,7 @@ namespace ContactsAppUI
             this.RemoveButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveButton.Image")));
             this.RemoveButton.Location = new System.Drawing.Point(193, 370);
             this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(39, 39);
+            this.RemoveButton.Size = new System.Drawing.Size(40, 40);
             this.RemoveButton.TabIndex = 7;
             this.RemoveButton.UseVisualStyleBackColor = true;
             this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
@@ -132,7 +132,7 @@ namespace ContactsAppUI
             this.EditButton.Image = ((System.Drawing.Image)(resources.GetObject("EditButton.Image")));
             this.EditButton.Location = new System.Drawing.Point(151, 370);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(39, 39);
+            this.EditButton.Size = new System.Drawing.Size(40, 40);
             this.EditButton.TabIndex = 6;
             this.EditButton.UseVisualStyleBackColor = true;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
@@ -144,7 +144,7 @@ namespace ContactsAppUI
             this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
             this.AddButton.Location = new System.Drawing.Point(109, 370);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(39, 39);
+            this.AddButton.Size = new System.Drawing.Size(40, 40);
             this.AddButton.TabIndex = 5;
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);

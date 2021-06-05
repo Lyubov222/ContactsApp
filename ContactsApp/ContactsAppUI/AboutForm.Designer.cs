@@ -48,7 +48,6 @@ namespace ContactsAppUI
             this.ContactsAppLabel.Size = new System.Drawing.Size(146, 25);
             this.ContactsAppLabel.TabIndex = 0;
             this.ContactsAppLabel.Text = "ContactsApp";
-            this.ContactsAppLabel.Click += new System.EventHandler(this.ContactsAppLabel_Click);
             // 
             // VersionLabel
             // 
@@ -58,7 +57,6 @@ namespace ContactsAppUI
             this.VersionLabel.Size = new System.Drawing.Size(43, 13);
             this.VersionLabel.TabIndex = 1;
             this.VersionLabel.Text = "v. 1.0.0";
-            this.VersionLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // AuthorAboutLabel
             // 
