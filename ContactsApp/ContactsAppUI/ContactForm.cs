@@ -24,7 +24,7 @@ namespace ContactsAppUI
         /// <summary>
         /// Поле, хранящее контакт
         /// </summary>
-        private Contact _contact;
+        private Contact _contact = new Contact();
 
         /// <summary>
         /// Переменная для проверки корректного ввода всех TextBox
@@ -52,7 +52,7 @@ namespace ContactsAppUI
                 NameTextBox.Text = _contact.Name;
                 SurnameTextBox.Text = _contact.Surname;
                 DateBirthDay.Value = _contact.Birthday;
-                PhoneTextBox.Text = _contact.PhoneNumber.ToString();
+                PhoneTextBox.Text = _contact.PhoneNumber.Number.ToString();
                 EmailTextBox.Text = _contact.Email;
                 VKTextBox.Text = _contact.IDVk;
             }
@@ -119,25 +119,23 @@ namespace ContactsAppUI
         private void buttonOK_Click(object sender, EventArgs e)
         {
             _isCorrectContact = IsContactValidated();
-            if (CheckTextBox())
-            {
-                _contact = new Contact
-                {
-                    PhoneNumber = new PhoneNumber(),
-                    Surname = SurnameTextBox.Text,
-                    Name = NameTextBox.Text,
-                    Email = EmailTextBox.Text
-                };
-                _contact.PhoneNumber.Number = Convert.ToInt64(PhoneTextBox.Text);
-                _contact.IDVk = VKTextBox.Text;
-                _contact.Birthday = DateBirthDay.Value;
-                Close();
-            }
-            else
+            if (!CheckTextBox())
             {
                 MessageBox.Show("Check the values are correct and try again",
                     "", MessageBoxButtons.OK);
+                return;
             }
+            _contact = new Contact
+            {
+                PhoneNumber = new PhoneNumber(),
+                Surname = SurnameTextBox.Text,
+                Name = NameTextBox.Text,
+                Email = EmailTextBox.Text
+            };
+            _contact.PhoneNumber.Number = Convert.ToInt64(PhoneTextBox.Text);
+            _contact.IDVk = VKTextBox.Text;
+            _contact.Birthday = DateBirthDay.Value;
+            Close();
         }
 
         /// <summary>
@@ -195,12 +193,8 @@ namespace ContactsAppUI
         /// <param name="e"></param>
         private void PhoneTextBox_Leave(object sender, EventArgs e)
         {
-            PhoneTextBox.BackColor = PhoneTextBox.Text.Length != 11 ? IncorrectValue : CorrectValue;
-            if (PhoneTextBox.Text.StartsWith("7"))
-            {
-                return;
-            }
-            PhoneTextBox.BackColor = IncorrectValue;
+            PhoneTextBox.BackColor = (PhoneTextBox.Text.StartsWith("7") 
+                && PhoneTextBox.Text.Length == 11) ? CorrectValue : IncorrectValue;
         }
 
         /// <summary>
@@ -210,7 +204,16 @@ namespace ContactsAppUI
         /// <param name="e"></param>
         private void EmailTextBox_Leave(object sender, EventArgs e)
         {
-            EmailTextBox.BackColor = EmailTextBox.Text.Contains("@") ? CorrectValue : IncorrectValue;
+            EmailTextBox.BackColor = CorrectValue;
+            try
+            {
+                _contact.Email = EmailTextBox.Text;
+            }
+            catch(ArgumentException exeption)
+            {
+                Console.WriteLine(exeption);
+                EmailTextBox.BackColor = IncorrectValue;
+            }
         }
     }
 }

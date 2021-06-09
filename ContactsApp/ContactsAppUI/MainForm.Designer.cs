@@ -39,7 +39,7 @@ namespace ContactsAppUI
             this.AddButton = new System.Windows.Forms.Button();
             this.BirthdayPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BDayLabel = new System.Windows.Forms.Label();
+            this.BirthdayDayLabel = new System.Windows.Forms.Label();
             this.TableLayoutPanel = new System.Windows.Forms.Panel();
             this.VKTextBox = new System.Windows.Forms.TextBox();
             this.VkLabel = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@ namespace ContactsAppUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 0;
@@ -118,7 +118,7 @@ namespace ContactsAppUI
             this.RemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RemoveButton.ForeColor = System.Drawing.SystemColors.Control;
             this.RemoveButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveButton.Image")));
-            this.RemoveButton.Location = new System.Drawing.Point(193, 370);
+            this.RemoveButton.Location = new System.Drawing.Point(94, 370);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(40, 40);
             this.RemoveButton.TabIndex = 7;
@@ -130,7 +130,7 @@ namespace ContactsAppUI
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditButton.ForeColor = System.Drawing.SystemColors.Control;
             this.EditButton.Image = ((System.Drawing.Image)(resources.GetObject("EditButton.Image")));
-            this.EditButton.Location = new System.Drawing.Point(151, 370);
+            this.EditButton.Location = new System.Drawing.Point(50, 370);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(40, 40);
             this.EditButton.TabIndex = 6;
@@ -142,7 +142,7 @@ namespace ContactsAppUI
             this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddButton.ForeColor = System.Drawing.SystemColors.Control;
             this.AddButton.Image = ((System.Drawing.Image)(resources.GetObject("AddButton.Image")));
-            this.AddButton.Location = new System.Drawing.Point(109, 370);
+            this.AddButton.Location = new System.Drawing.Point(6, 370);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(40, 40);
             this.AddButton.TabIndex = 5;
@@ -152,29 +152,29 @@ namespace ContactsAppUI
             // BirthdayPanel
             // 
             this.BirthdayPanel.Controls.Add(this.pictureBox1);
-            this.BirthdayPanel.Controls.Add(this.BDayLabel);
-            this.BirthdayPanel.Location = new System.Drawing.Point(238, 337);
+            this.BirthdayPanel.Controls.Add(this.BirthdayDayLabel);
+            this.BirthdayPanel.Location = new System.Drawing.Point(238, 323);
             this.BirthdayPanel.Name = "BirthdayPanel";
-            this.BirthdayPanel.Size = new System.Drawing.Size(439, 68);
+            this.BirthdayPanel.Size = new System.Drawing.Size(439, 82);
             this.BirthdayPanel.TabIndex = 4;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(15, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(66, 62);
+            this.pictureBox1.Size = new System.Drawing.Size(50, 74);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // BDayLabel
+            // BirthdayDayLabel
             // 
-            this.BDayLabel.AutoSize = true;
-            this.BDayLabel.Location = new System.Drawing.Point(107, 26);
-            this.BDayLabel.Name = "BDayLabel";
-            this.BDayLabel.Size = new System.Drawing.Size(36, 13);
-            this.BDayLabel.TabIndex = 0;
-            this.BDayLabel.Text = "BDAY";
+            this.BirthdayDayLabel.AutoSize = true;
+            this.BirthdayDayLabel.Location = new System.Drawing.Point(72, 19);
+            this.BirthdayDayLabel.Name = "BirthdayDayLabel";
+            this.BirthdayDayLabel.Size = new System.Drawing.Size(50, 13);
+            this.BirthdayDayLabel.TabIndex = 0;
+            this.BirthdayDayLabel.Text = "BirthDAY";
             // 
             // TableLayoutPanel
             // 
@@ -207,7 +207,7 @@ namespace ContactsAppUI
             // VkLabel
             // 
             this.VkLabel.AutoSize = true;
-            this.VkLabel.Location = new System.Drawing.Point(16, 126);
+            this.VkLabel.Location = new System.Drawing.Point(15, 122);
             this.VkLabel.Name = "VkLabel";
             this.VkLabel.Size = new System.Drawing.Size(45, 13);
             this.VkLabel.TabIndex = 13;
@@ -225,7 +225,7 @@ namespace ContactsAppUI
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(23, 103);
+            this.EmailLabel.Location = new System.Drawing.Point(22, 99);
             this.EmailLabel.Name = "EmailLabel";
             this.EmailLabel.Size = new System.Drawing.Size(38, 13);
             this.EmailLabel.TabIndex = 11;
@@ -243,7 +243,7 @@ namespace ContactsAppUI
             // PhoneLabel
             // 
             this.PhoneLabel.AutoSize = true;
-            this.PhoneLabel.Location = new System.Drawing.Point(20, 80);
+            this.PhoneLabel.Location = new System.Drawing.Point(19, 76);
             this.PhoneLabel.Name = "PhoneLabel";
             this.PhoneLabel.Size = new System.Drawing.Size(41, 13);
             this.PhoneLabel.TabIndex = 9;
@@ -260,7 +260,7 @@ namespace ContactsAppUI
             // BirthdayLabel
             // 
             this.BirthdayLabel.AutoSize = true;
-            this.BirthdayLabel.Location = new System.Drawing.Point(13, 57);
+            this.BirthdayLabel.Location = new System.Drawing.Point(12, 53);
             this.BirthdayLabel.Name = "BirthdayLabel";
             this.BirthdayLabel.Size = new System.Drawing.Size(48, 13);
             this.BirthdayLabel.TabIndex = 7;
@@ -278,7 +278,7 @@ namespace ContactsAppUI
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(23, 34);
+            this.NameLabel.Location = new System.Drawing.Point(22, 30);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(38, 13);
             this.NameLabel.TabIndex = 5;
@@ -296,7 +296,7 @@ namespace ContactsAppUI
             // SurnameLabel
             // 
             this.SurnameLabel.AutoSize = true;
-            this.SurnameLabel.Location = new System.Drawing.Point(9, 11);
+            this.SurnameLabel.Location = new System.Drawing.Point(8, 7);
             this.SurnameLabel.Name = "SurnameLabel";
             this.SurnameLabel.Size = new System.Drawing.Size(52, 13);
             this.SurnameLabel.TabIndex = 0;
@@ -382,6 +382,7 @@ namespace ContactsAppUI
             this.ClientSize = new System.Drawing.Size(688, 436);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(707, 475);
@@ -420,7 +421,7 @@ namespace ContactsAppUI
         private System.Windows.Forms.TextBox PhoneTextBox;
         private System.Windows.Forms.Label PhoneLabel;
         private System.Windows.Forms.Panel BirthdayPanel;
-        private System.Windows.Forms.Label BDayLabel;
+        private System.Windows.Forms.Label BirthdayDayLabel;
         private System.Windows.Forms.TextBox VKTextBox;
         private System.Windows.Forms.Label VkLabel;
         private System.Windows.Forms.TextBox EmailTextBox;

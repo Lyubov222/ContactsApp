@@ -48,7 +48,7 @@ namespace ContactsAppUI
             // SurnameLabel
             // 
             this.SurnameLabel.AutoSize = true;
-            this.SurnameLabel.Location = new System.Drawing.Point(12, 20);
+            this.SurnameLabel.Location = new System.Drawing.Point(10, 16);
             this.SurnameLabel.Name = "SurnameLabel";
             this.SurnameLabel.Size = new System.Drawing.Size(52, 13);
             this.SurnameLabel.TabIndex = 0;
@@ -65,7 +65,7 @@ namespace ContactsAppUI
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(23, 44);
+            this.NameLabel.Location = new System.Drawing.Point(24, 39);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(38, 13);
             this.NameLabel.TabIndex = 2;
@@ -82,7 +82,7 @@ namespace ContactsAppUI
             // BirthdayLabel
             // 
             this.BirthdayLabel.AutoSize = true;
-            this.BirthdayLabel.Location = new System.Drawing.Point(13, 66);
+            this.BirthdayLabel.Location = new System.Drawing.Point(14, 62);
             this.BirthdayLabel.Name = "BirthdayLabel";
             this.BirthdayLabel.Size = new System.Drawing.Size(48, 13);
             this.BirthdayLabel.TabIndex = 4;
@@ -99,7 +99,7 @@ namespace ContactsAppUI
             // PhoneLabel
             // 
             this.PhoneLabel.AutoSize = true;
-            this.PhoneLabel.Location = new System.Drawing.Point(20, 89);
+            this.PhoneLabel.Location = new System.Drawing.Point(21, 85);
             this.PhoneLabel.Name = "PhoneLabel";
             this.PhoneLabel.Size = new System.Drawing.Size(41, 13);
             this.PhoneLabel.TabIndex = 6;
@@ -108,6 +108,7 @@ namespace ContactsAppUI
             // PhoneTextBox
             // 
             this.PhoneTextBox.Location = new System.Drawing.Point(63, 82);
+            this.PhoneTextBox.MaxLength = 11;
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(200, 20);
             this.PhoneTextBox.TabIndex = 7;
@@ -116,7 +117,7 @@ namespace ContactsAppUI
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
-            this.EmailLabel.Location = new System.Drawing.Point(23, 112);
+            this.EmailLabel.Location = new System.Drawing.Point(24, 108);
             this.EmailLabel.Name = "EmailLabel";
             this.EmailLabel.Size = new System.Drawing.Size(38, 13);
             this.EmailLabel.TabIndex = 8;
@@ -133,7 +134,7 @@ namespace ContactsAppUI
             // VKLabel
             // 
             this.VKLabel.AutoSize = true;
-            this.VKLabel.Location = new System.Drawing.Point(16, 135);
+            this.VKLabel.Location = new System.Drawing.Point(17, 131);
             this.VKLabel.Name = "VKLabel";
             this.VKLabel.Size = new System.Drawing.Size(45, 13);
             this.VKLabel.TabIndex = 10;
@@ -148,7 +149,7 @@ namespace ContactsAppUI
             // 
             // buttonOK
             // 
-            this.buttonOK.Location = new System.Drawing.Point(110, 151);
+            this.buttonOK.Location = new System.Drawing.Point(106, 154);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 20);
             this.buttonOK.TabIndex = 12;
@@ -158,7 +159,7 @@ namespace ContactsAppUI
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(188, 151);
+            this.buttonCancel.Location = new System.Drawing.Point(187, 154);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 20);
             this.buttonCancel.TabIndex = 13;
@@ -170,7 +171,8 @@ namespace ContactsAppUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 171);
+            this.ClientSize = new System.Drawing.Size(274, 178);
+            this.ControlBox = false;
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.VKTextBox);
@@ -185,10 +187,11 @@ namespace ContactsAppUI
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.SurnameTextBox);
             this.Controls.Add(this.SurnameLabel);
-            this.MaximumSize = new System.Drawing.Size(290, 210);
-            this.MinimumSize = new System.Drawing.Size(290, 210);
+            this.MaximumSize = new System.Drawing.Size(290, 217);
+            this.MinimumSize = new System.Drawing.Size(290, 217);
             this.Name = "ContactForm";
-            this.Text = "EditForm";
+            this.ShowIcon = false;
+            this.Text = "ContactForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -36,21 +36,21 @@ namespace ContactsAppUI
             InitializeComponent();
             _project = ProjectManager.LoadFromFile(_defaultFileName, "project.json");
             _project.SortList();
-            CheckBirthdayToday();
+            FormListBirthday();
         }
 
         /// <summary>
         /// Формирует список именинников
         /// </summary>
-        private void CheckBirthdayToday()
+        private void FormListBirthday()
         {
             var listBirthday = _project.GetListBirthday();
             if (listBirthday != "")
             {
                 BirthdayPanel.Visible = true;
-                BDayLabel.Text = "Сегодня день рождения: ";
+                BirthdayDayLabel.Text = "Сегодня день рождения: ";
                 var birthdayLabelText = listBirthday;
-                BDayLabel.Text += birthdayLabelText;
+                BirthdayDayLabel.Text += birthdayLabelText;
             }
             else
             {
@@ -61,7 +61,7 @@ namespace ContactsAppUI
         /// <summary>
         /// Отображает информацию о контактах в полях формы
         /// </summary>
-        private void IsCorrectContent()
+        private void DisplayInfortstion()
         {
             var selectedIndex = ContactsListBox.SelectedIndex;
             if (selectedIndex != -1)
@@ -79,36 +79,31 @@ namespace ContactsAppUI
             }
             else
             {
-                NameTextBox.Text = "";
-                SurnameTextBox.Text = "";
-                EmailTextBox.Text = "";
-                VKTextBox.Text = "";
-                PhoneTextBox.Text = "";
-                DateBirthDay.Value = DateTime.Today;
+                ClearInfomationContact();
             }
         }
 
         /// <summary>
         /// Корректирует данные в ListBox и полях формы
         /// </summary>
-        private void UpdateData()
+        private void UpdateContactListBox() 
         {
             _project.SortList();
-            ClearData();
+            ClearListBox();
             foreach (var t in _project.Contacts)
             {
                 ContactsListBox.Items.Add(t.Surname);
                 _findedContacts.Add(t);
             }
-            IsCorrectContent();
-            CheckBirthdayToday();
-            SaveToFile();
+            DisplayInfortstion();
+            FormListBirthday();
+            SaveProject();
         }
 
         /// <summary>
         /// Удаляет все элементы из ListBox и списка контактов, удовлетворяющих условиям поиска
         /// </summary>
-        private void ClearData()
+        private void ClearListBox() 
         {
             ContactsListBox.Items.Clear();
             _findedContacts.Clear();
@@ -117,7 +112,7 @@ namespace ContactsAppUI
         /// <summary>
         /// Сохраняет данные в файл
         /// </summary>
-        private void SaveToFile()
+        private void SaveProject()
         {
             ProjectManager.SaveToFile(_project, _defaultFileName, "project.json");
         }
@@ -144,9 +139,9 @@ namespace ContactsAppUI
             }
             _project.Contacts.RemoveAt(_project.Contacts.IndexOf(updatedIndex));
             ContactsListBox.Items.RemoveAt(selectedIndex);
-            IsCorrectContent();
-            CheckBirthdayToday();
-            SaveToFile();
+            DisplayInfortstion();
+            FormListBirthday();
+            SaveProject();
         }
 
         /// <summary>
@@ -165,7 +160,7 @@ namespace ContactsAppUI
                 return;
             }
             _project.Contacts.Add(form.Contact);
-            UpdateData();
+            UpdateContactListBox();
             _project.SortList();
         }
 
@@ -188,13 +183,32 @@ namespace ContactsAppUI
             {
                 return;
             }
-            _project.Contacts[_project.Contacts.IndexOf(_findedContacts[selectedIndex])] = form.Contact;
+            var selectedContact = _findedContacts[selectedIndex];
+            var originalIndex = _project.Contacts.IndexOf(selectedContact);
+            _project.Contacts[originalIndex] = form.Contact; 
             _findedContacts[selectedIndex] = form.Contact;
-            UpdateData();
+            UpdateContactListBox();
+        }
+
+        /// <summary>
+        /// Отчищает информацию контакта
+        /// </summary>
+        private void ClearInfomationContact()
+        {
+            NameTextBox.Text = "";
+            SurnameTextBox.Text = "";
+            EmailTextBox.Text = "";
+            VKTextBox.Text = "";
+            PhoneTextBox.Text = "";
+            DateBirthDay.Value = DateTime.Today;
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            UpdateData();
+            UpdateContactListBox();
+            if(_findedContacts.Count > 0)
+            {
+                ContactsListBox.SelectedIndex = 0;
+            }
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -219,17 +233,17 @@ namespace ContactsAppUI
         }
         private void FindTextBox_TextChanged(object sender, EventArgs e)
         {
-            ClearData();
+            ClearListBox();
             foreach (var t in _project.GetByNameOrSurname(FindTextBox.Text))
             {
                 _findedContacts.Add(t);
                 ContactsListBox.Items.Add(t.Surname);
             }
-            IsCorrectContent();
+            DisplayInfortstion();
         }
         private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IsCorrectContent();
+            DisplayInfortstion();
         }
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -259,5 +273,6 @@ namespace ContactsAppUI
             }
             DateBirthDay.Value = _findedContacts[ContactsListBox.SelectedIndex].Birthday;
         }
+
     }
 }
