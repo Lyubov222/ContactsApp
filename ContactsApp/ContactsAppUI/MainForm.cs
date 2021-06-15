@@ -116,7 +116,7 @@ namespace ContactsAppUI
         {
             ProjectManager.SaveToFile(_project, _defaultFileName, "project.json");
         }
-
+         
         /// <summary>
         /// Метод удаления контакта
         /// </summary>
