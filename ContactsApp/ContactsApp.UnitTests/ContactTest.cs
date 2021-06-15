@@ -60,6 +60,15 @@ namespace ContactsApp.UnitTests
             Assert.AreEqual(expected, actual, "Геттер Name возвращает неправильное имя");
         }
 
+        [Test(Description = "Позитивный тест сеттера Name")]
+        public void TestNameSet_CorrectValue()
+        {
+            SetUp();
+            _testContact.Name = "Степан";
+            var actual = _testContact.Name;
+            Assert.AreEqual(actual, _testContact.Name, "Сеттер неправильно заполнил имя");
+        }
+
         [TestCase("", "Должно возникать исключение, если имя - пустая строка",
                    TestName = "Присвоение пустой строки в качестве имени")]
         [TestCase("Степан-Степан-Степан-Степан-Степан-Степан-Степан-Степан-Степан-Степан",

@@ -46,5 +46,10 @@ namespace ContactsApp
             return Contacts.FindAll(First => First.Surname.ToLower().Contains(text) ||
                                              First.Name.ToLower().Contains(text));
         }
+
+        public bool Equals(Project other)
+        {
+            return other != null && this.Contacts.Equals(other.Contacts);
+        }
     }
 }

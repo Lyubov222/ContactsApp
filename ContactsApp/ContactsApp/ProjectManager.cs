@@ -48,6 +48,7 @@ namespace ContactsApp
             {
                 serializer.Serialize(writer, project);
             }
+            Console.WriteLine(DefaultFilename);
         }
         /// <summary>
         /// Считывание данных контактов из файла

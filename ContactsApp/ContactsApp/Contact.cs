@@ -155,15 +155,58 @@ namespace ContactsApp
         /// <param name="email">Email</param>
         /// <param name="IdVk">ID вконтакте</param>
         /// <param name="birthday">День рождения</param>
-        public Contact(PhoneNumber phoneNumber, string surname, string name, string email, 
-                       string IdVk, DateTime birthday)
+        public Contact(string name, string surname, string email, string IdVk,
+            DateTime birthday, PhoneNumber phoneNumber)
         {
-            PhoneNumber = phoneNumber;
-            Surname = surname;
-            Name = name;
-            Email = email;
-            IDVk= IdVk;
-            Birthday = birthday;
+            this.Birthday = birthday;
+            this.Email = email;
+            this.IDVk = IdVk;
+            this.Name = name;
+            this.Surname = surname;
+            this.PhoneNumber = phoneNumber;
+        }
+
+        public bool Equals(Contact other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return _surname == other._surname
+                   && _name == other._name
+                   && _email == other._email
+                   && _birthday.Equals(other._birthday)
+                   && _IDvk == other._IDvk
+                   && Equals(PhoneNumber, other.PhoneNumber);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj.GetType() == this.GetType() && Equals((Contact)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = (_surname != null ? _surname.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (_name != null ? _name.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (_email != null ? _email.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ _birthday.GetHashCode();
+                hashCode = (hashCode * 397) ^ (_IDvk != null ? _IDvk.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (PhoneNumber != null ? PhoneNumber.GetHashCode() : 0);
+                return hashCode;
+            }
+        }
+
+        /// <summary>
+        /// Метод для реализации интерфейса IComporable
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public int CompareTo(Contact other)
+        {
+            return other == null ? 1 : String.Compare(_surname, other._surname, StringComparison.Ordinal);
         }
 
         /// <summary>
