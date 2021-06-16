@@ -44,6 +44,7 @@ namespace ContactsApp.UnitTests
                 new DateTime(2000, 6, 20),
                 expectedphone);
             project.Contacts.Add(contact);
+           // ProjectManager.SaveToFile(project, Location, "correctproject.json"); 
             return project;
         }
 

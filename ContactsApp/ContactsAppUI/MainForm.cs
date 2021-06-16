@@ -154,14 +154,28 @@ namespace ContactsAppUI
                 return;
             }
             var form = new ContactForm();
-            form.ShowDialog();
-            if (form.Contact == null)
+            var dialogResulte = form.ShowDialog();
+
+            if (dialogResulte == DialogResult.OK)
             {
-                return;
+                _project.Contacts.Add(form.Contact);
+                UpdateContactListBox();
+                if(ContactsListBox.Items == null)
+                {
+                    return;
+                }
+                var index = 0;
+                index = _findedContacts.IndexOf(form.Contact);
+                if (_findedContacts.Count > index)
+                {
+                    ContactsListBox.SelectedIndex = index;
+                    DisplayInfortstion();
+                }
+                else
+                {
+                    ClearInfomationContact();
+                }
             }
-            _project.Contacts.Add(form.Contact);
-            UpdateContactListBox();
-            _project.SortList();
         }
 
         /// <summary>
@@ -188,6 +202,17 @@ namespace ContactsAppUI
             _project.Contacts[originalIndex] = form.Contact; 
             _findedContacts[selectedIndex] = form.Contact;
             UpdateContactListBox();
+            var index = 0;
+            index = _findedContacts.IndexOf(form.Contact);
+            if (_findedContacts.Count > index)
+            {
+                ContactsListBox.SelectedIndex = index;
+                DisplayInfortstion();
+            }
+            else
+            {
+                ClearInfomationContact();
+            }
         }
 
         /// <summary>
@@ -209,6 +234,7 @@ namespace ContactsAppUI
             {
                 ContactsListBox.SelectedIndex = 0;
             }
+            FormListBirthday();
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {

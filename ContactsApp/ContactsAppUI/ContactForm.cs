@@ -27,21 +27,11 @@ namespace ContactsAppUI
         private Contact _contact = new Contact();
 
         /// <summary>
-        /// Переменная для проверки корректного ввода всех TextBox
-        /// </summary>
-        private bool _isCorrectContact;
-
-        /// <summary>
-        /// Переменная, хранящая недопустимые для ввода всех TextBox
-        /// </summary>
-        string _inCorrectSymbols = @"123456789!@#$%^&*()_+|-+=\.,<>";
-
-        /// <summary>
         /// Загрузка формы
         /// </summary>
         public Contact Contact
         {
-            get => _contact;
+            get => _contact; 
             set
             {
                 _contact = value;
@@ -66,33 +56,6 @@ namespace ContactsAppUI
             InitializeComponent();
         }
 
-       /// <summary>
-       /// Проверяет наличие некорректных данных ввода
-       /// </summary>
-       /// <returns> true - если есть некорректные данные, иначе false</returns>
-        private bool IsContactValidated()
-        {
-            return SurnameTextBox.BackColor == IncorrectValue ||
-                   NameTextBox.BackColor == IncorrectValue ||
-                   BirthdayLabel.Text == String.Empty ||
-                   PhoneTextBox.BackColor == IncorrectValue ||
-                   VKTextBox.Text == "Error";
-        }
-
-        /// <summary>
-        /// Проверяет все TextBox на наличие символов и корректность
-        /// </summary>
-        ///<returns> true - если проверка прошла успешно, иначе false </returns>
-        private bool CheckTextBox()
-        {
-            return NameTextBox.Text != null &&
-                   SurnameTextBox.Text != null && 
-                   _isCorrectContact == false && 
-                   PhoneTextBox.Text.Length == 11 && 
-                   NameTextBox.Text != string.Empty && 
-                   SurnameTextBox.Text != string.Empty;
-        }
-
         /// <summary>
         /// Проверка на ввод фамилии
         /// </summary>
@@ -100,15 +63,16 @@ namespace ContactsAppUI
         /// <param name="e"></param>
         private void SurnameTextBox_Leave(object sender, EventArgs e)
         {
-            var check = SurnameTextBox.Text.Length >= 50;
-            for (var i=0; i< SurnameTextBox.TextLength; i++)
+            try
             {
-                foreach (var t in _inCorrectSymbols.Where(t =>SurnameTextBox.Text[i]==t))
-                {
-                    check = true;
-                }
+                _contact.Surname = SurnameTextBox.Text;
+                SurnameTextBox.BackColor = CorrectValue;
             }
-            SurnameTextBox.BackColor = check ? IncorrectValue : CorrectValue;
+           catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                SurnameTextBox.BackColor = IncorrectValue;
+            }
         }
 
         /// <summary>
@@ -118,24 +82,45 @@ namespace ContactsAppUI
         /// <param name="e"></param>
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            _isCorrectContact = IsContactValidated();
-            if (!CheckTextBox())
+            string inputError = "Error list:\n";
+
+            if ((SurnameTextBox.BackColor == IncorrectValue) || (SurnameTextBox.Text == ""))
             {
-                MessageBox.Show("Check the values are correct and try again",
-                    "", MessageBoxButtons.OK);
+                inputError = inputError + "incorrect surname.\n";
+            }
+
+            if ((NameTextBox.BackColor == IncorrectValue) || (NameTextBox.Text == ""))
+            {
+                inputError = inputError + "incorrect name.\n";
+            }
+
+            if (DateBirthDay.BackColor == IncorrectValue)
+            {
+                inputError = inputError + "incorrect date.\n";
+            }
+
+            if ((PhoneTextBox.BackColor == IncorrectValue) || (PhoneTextBox.Text == ""))
+            {
+                inputError = inputError + "incorrect phone.\n";
+            }
+
+            if ((EmailTextBox.BackColor == IncorrectValue) || (EmailTextBox.Text == ""))
+            {
+                inputError = inputError + "incorrect e-mail.\n";
+            }
+
+            if ((VKTextBox.BackColor == IncorrectValue) || (VKTextBox.Text == ""))
+            {
+                inputError = inputError + "incorrect vk.com.";
+            }
+
+            if (inputError != "Error list:\n")
+            {
+                MessageBox.Show(inputError, @"Error");
                 return;
             }
-            _contact = new Contact
-            {
-                PhoneNumber = new PhoneNumber(),
-                Surname = SurnameTextBox.Text,
-                Name = NameTextBox.Text,
-                Email = EmailTextBox.Text
-            };
-            _contact.PhoneNumber.Number = Convert.ToInt64(PhoneTextBox.Text);
-            _contact.IDVk = VKTextBox.Text;
-            _contact.Birthday = DateBirthDay.Value;
-            Close();
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         /// <summary>
@@ -146,6 +131,7 @@ namespace ContactsAppUI
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             _contact = null;
+            DialogResult = DialogResult.Cancel;
             Close();
         }
 
@@ -156,15 +142,16 @@ namespace ContactsAppUI
         /// <param name="e"></param>
         private void NameTextBox_Leave(object sender, EventArgs e)
         {
-            var check = NameTextBox.Text.Length >= 50;
-            for (var i=0; i<NameTextBox.TextLength; i++)
+            try
             {
-                foreach (var t in _inCorrectSymbols.Where(t => NameTextBox.Text[i] == t))
-                {
-                    check = true;
-                }
+                _contact.Name = NameTextBox.Text;
+                NameTextBox.BackColor = CorrectValue;
             }
-            NameTextBox.BackColor = check ? IncorrectValue : CorrectValue;
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                NameTextBox.BackColor = IncorrectValue;
+            }
         }
 
         /// <summary>
@@ -172,17 +159,18 @@ namespace ContactsAppUI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void DateBirthDay_ValueChanged(object sender, EventArgs e)
+        private void DateBirthDay_Leave(object sender, EventArgs e)
         {
-            if (DateBirthDay.Value.Year >= 1900 && DateBirthDay.Value <= DateTime.Now)
+            DateBirthDay.BackColor = CorrectValue;
+            try
             {
-                BirthdayLabel.Text = "Birthday";
-                BirthdayLabel.ForeColor = Color.Black;
+                _contact.Birthday = DateBirthDay.Value;
             }
-            else
+            catch (ArgumentException exception)
             {
-                BirthdayLabel.Text = "Error";
-                BirthdayLabel.ForeColor = IncorrectValue;
+                Console.WriteLine(exception);
+                DateBirthDay.BackColor = IncorrectValue;
+                DateBirthDay.Invalidate();
             }
         }
 
@@ -193,8 +181,26 @@ namespace ContactsAppUI
         /// <param name="e"></param>
         private void PhoneTextBox_Leave(object sender, EventArgs e)
         {
-            PhoneTextBox.BackColor = (PhoneTextBox.Text.StartsWith("7") 
-                && PhoneTextBox.Text.Length == 11) ? CorrectValue : IncorrectValue;
+            PhoneTextBox.BackColor = CorrectValue;
+
+            if ((PhoneTextBox.Text.All(char.IsDigit)) && (PhoneTextBox.Text != ""))
+            {
+                try
+                {
+                    PhoneNumber value = new PhoneNumber();
+                    value.Number = long.Parse(PhoneTextBox.Text);
+                    _contact.PhoneNumber = value;
+                }
+                catch (ArgumentException exception)
+                {
+                    Console.WriteLine(exception);
+                    PhoneTextBox.BackColor = IncorrectValue;
+                }
+            }
+            else
+            {
+                PhoneTextBox.BackColor = IncorrectValue;
+            }
         }
 
         /// <summary>
@@ -204,16 +210,35 @@ namespace ContactsAppUI
         /// <param name="e"></param>
         private void EmailTextBox_Leave(object sender, EventArgs e)
         {
-            EmailTextBox.BackColor = CorrectValue;
             try
             {
                 _contact.Email = EmailTextBox.Text;
+                EmailTextBox.BackColor = CorrectValue;
             }
-            catch(ArgumentException exeption)
+            catch (Exception exception)
             {
-                Console.WriteLine(exeption);
+                Console.WriteLine(exception);
                 EmailTextBox.BackColor = IncorrectValue;
             }
+        }
+
+        private void VKTextBox_Leave(object sender, EventArgs e)
+        {
+            VKTextBox.BackColor = CorrectValue;
+            try
+            {
+                _contact.IDVk = VKTextBox.Text;
+            }
+            catch (ArgumentException exception)
+            {
+                Console.WriteLine(exception);
+                VKTextBox.BackColor = IncorrectValue;
+            }
+        }
+
+        private void ContactForm_Load(object sender, EventArgs e)
+        {
+            _contact.Birthday = DateBirthDay.Value;
         }
     }
 }

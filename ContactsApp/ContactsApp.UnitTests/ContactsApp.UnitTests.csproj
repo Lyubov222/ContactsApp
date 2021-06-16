@@ -16,4 +16,13 @@
     <ProjectReference Include="..\ContactsApp\ContactsApp.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestData\correctproject.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\incorrectproject.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

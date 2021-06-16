@@ -163,14 +163,14 @@ namespace ContactsAppUI
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(15, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 74);
+            this.pictureBox1.Size = new System.Drawing.Size(70, 74);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
             // BirthdayDayLabel
             // 
             this.BirthdayDayLabel.AutoSize = true;
-            this.BirthdayDayLabel.Location = new System.Drawing.Point(72, 19);
+            this.BirthdayDayLabel.Location = new System.Drawing.Point(100, 24);
             this.BirthdayDayLabel.Name = "BirthdayDayLabel";
             this.BirthdayDayLabel.Size = new System.Drawing.Size(50, 13);
             this.BirthdayDayLabel.TabIndex = 0;

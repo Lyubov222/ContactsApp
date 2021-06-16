@@ -94,7 +94,7 @@ namespace ContactsAppUI
             this.DateBirthDay.Name = "DateBirthDay";
             this.DateBirthDay.Size = new System.Drawing.Size(200, 20);
             this.DateBirthDay.TabIndex = 5;
-            this.DateBirthDay.ValueChanged += new System.EventHandler(this.DateBirthDay_ValueChanged);
+            this.DateBirthDay.ValueChanged += new System.EventHandler(this.DateBirthDay_Leave);
             // 
             // PhoneLabel
             // 
@@ -146,6 +146,7 @@ namespace ContactsAppUI
             this.VKTextBox.Name = "VKTextBox";
             this.VKTextBox.Size = new System.Drawing.Size(200, 20);
             this.VKTextBox.TabIndex = 11;
+            this.VKTextBox.TextChanged += new System.EventHandler(this.VKTextBox_Leave);
             // 
             // buttonOK
             // 
@@ -171,8 +172,7 @@ namespace ContactsAppUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 178);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(279, 186);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.VKTextBox);
@@ -187,11 +187,15 @@ namespace ContactsAppUI
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.SurnameTextBox);
             this.Controls.Add(this.SurnameLabel);
-            this.MaximumSize = new System.Drawing.Size(290, 217);
-            this.MinimumSize = new System.Drawing.Size(290, 217);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(295, 225);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(295, 225);
             this.Name = "ContactForm";
             this.ShowIcon = false;
             this.Text = "ContactForm";
+            this.Load += new System.EventHandler(this.ContactForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
