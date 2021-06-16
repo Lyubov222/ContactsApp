@@ -43,7 +43,6 @@ namespace ContactsApp.UnitTests
         public void TestSurnameSet_ArgumentException(string wrongSurname, string message)
         {
             SetUp();
-            SetUp();
             Assert.Throws<ArgumentException>(
                 () => { _testContact.Surname = wrongSurname; },
                 message);
