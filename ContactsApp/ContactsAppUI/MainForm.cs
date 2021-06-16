@@ -212,6 +212,7 @@ namespace ContactsAppUI
             else
             {
                 ClearInfomationContact();
+       
             }
         }
 
@@ -264,6 +265,7 @@ namespace ContactsAppUI
             {
                 _findedContacts.Add(t);
                 ContactsListBox.Items.Add(t.Surname);
+
             }
             DisplayInfortstion();
         }

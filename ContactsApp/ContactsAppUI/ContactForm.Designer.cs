@@ -56,7 +56,7 @@ namespace ContactsAppUI
             // 
             // SurnameTextBox
             // 
-            this.SurnameTextBox.Location = new System.Drawing.Point(63, 13);
+            this.SurnameTextBox.Location = new System.Drawing.Point(62, 13);
             this.SurnameTextBox.Name = "SurnameTextBox";
             this.SurnameTextBox.Size = new System.Drawing.Size(200, 20);
             this.SurnameTextBox.TabIndex = 1;
@@ -73,7 +73,7 @@ namespace ContactsAppUI
             // 
             // NameTextBox
             // 
-            this.NameTextBox.Location = new System.Drawing.Point(63, 36);
+            this.NameTextBox.Location = new System.Drawing.Point(62, 36);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(200, 20);
             this.NameTextBox.TabIndex = 3;
@@ -90,7 +90,7 @@ namespace ContactsAppUI
             // 
             // DateBirthDay
             // 
-            this.DateBirthDay.Location = new System.Drawing.Point(63, 59);
+            this.DateBirthDay.Location = new System.Drawing.Point(62, 59);
             this.DateBirthDay.Name = "DateBirthDay";
             this.DateBirthDay.Size = new System.Drawing.Size(200, 20);
             this.DateBirthDay.TabIndex = 5;
@@ -107,7 +107,7 @@ namespace ContactsAppUI
             // 
             // PhoneTextBox
             // 
-            this.PhoneTextBox.Location = new System.Drawing.Point(63, 82);
+            this.PhoneTextBox.Location = new System.Drawing.Point(62, 82);
             this.PhoneTextBox.MaxLength = 11;
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(200, 20);
@@ -125,7 +125,7 @@ namespace ContactsAppUI
             // 
             // EmailTextBox
             // 
-            this.EmailTextBox.Location = new System.Drawing.Point(63, 105);
+            this.EmailTextBox.Location = new System.Drawing.Point(62, 105);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(200, 20);
             this.EmailTextBox.TabIndex = 9;
@@ -142,7 +142,7 @@ namespace ContactsAppUI
             // 
             // VKTextBox
             // 
-            this.VKTextBox.Location = new System.Drawing.Point(63, 128);
+            this.VKTextBox.Location = new System.Drawing.Point(62, 128);
             this.VKTextBox.Name = "VKTextBox";
             this.VKTextBox.Size = new System.Drawing.Size(200, 20);
             this.VKTextBox.TabIndex = 11;

@@ -12,19 +12,27 @@ namespace ContactsApp.UnitTests
     [TestFixture]
     class ProjectManagerTest
     {
+        /// <summary>
+        /// путь к файлу 
+        /// </summary>
         public string Location
         {
             get
             {
                 var location = Assembly.GetExecutingAssembly().Location;
-                location = location.Replace("\\ContactsApp.UnitTests", "\\TestData\\");
+                location = Path.GetDirectoryName(location);
+                location += "\\TestData\\";
                 return location;
             }
         }
+
+        /// <summary>
+        /// Создание корректного проекта
+        /// </summary>
+        /// <returns></returns>
         private Project GetCorrectProject()
         {
             var project = new Project();
-
             PhoneNumber expectedphone = new PhoneNumber { Number = 79617444824 };
             var contact = new Contact(
                 "Lyubov",
@@ -44,18 +52,19 @@ namespace ContactsApp.UnitTests
                 new DateTime(2000, 6, 20),
                 expectedphone);
             project.Contacts.Add(contact);
-           // ProjectManager.SaveToFile(project, Location, "correctproject.json"); 
             return project;
         }
 
         [Test(Description = "Тест метода LoadFromFile")]
         public void ProjectManager_LoadCorrectData_FileLoadCorrected()
         {
+            //SetUp
             var expectedProject = GetCorrectProject();
 
+            //Act
             var actualProject = ProjectManager.LoadFromFile(Location, "correctproject.json");
             
-
+            //Assert
             Assert.Multiple(() =>
             {
 
@@ -71,32 +80,43 @@ namespace ContactsApp.UnitTests
         [TestCase(Description = "Негативный тест загрузки", TestName = "Загрузка некорректного файла")]
         public void ProjectManager_LoadIncorrectData_FileLoadIncorrectly()
         {
-            var actualProject = ProjectManager.LoadFromFile(Location, "incorrectproject.json");
-            Assert.IsNotNull(actualProject);
+            //SetUp
             var expectedCount = 0;
 
+            //Act
+            var actualProject = ProjectManager.LoadFromFile(Location, "incorrectproject.json");
+
+            //Assert
+            Assert.IsNotNull(actualProject);            
             Assert.AreEqual(expectedCount, actualProject.Contacts.Count);
         }
 
         [TestCase(Description = "Негативный тест загрузки", TestName = "Загрузка пустого файла")]
         public void ProjectManager_LoadNullData_FileLoadIncorrectly()
         {
-            var actualProject = ProjectManager.LoadFromFile("\\Lolol", "\\Lololo.json\\");
-            Assert.IsNotNull(actualProject);
+            //SetUp
             var expectedCount = 0;
 
+            //Act
+            var actualProject = ProjectManager.LoadFromFile("\\Lolol", "\\Lololo.json\\");
+
+            //Assert
+            Assert.IsNotNull(actualProject);
             Assert.AreEqual(expectedCount, actualProject.Contacts.Count);
         }
 
         [TestCase(Description = "", TestName = "Позитивный тест сохранения")]
         public void ProjectManager_SaveCorrectData_FileSaveCorrectly()
         {
+            //SetUp
             var savingProject = GetCorrectProject();
-
             ProjectManager.SaveToFile(savingProject, Location, "SavedProjectFile.json");
-
             var expected = File.ReadAllText(Location + "correctproject.json");
+
+            //Act
             var actual = File.ReadAllText(Location + "SavedProjectFile.json");
+
+            //Assert
             Assert.AreEqual(expected, actual);
         }
     }
