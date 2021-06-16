@@ -27,12 +27,12 @@ namespace ContactsApp
             {
                 if (!value.ToString().StartsWith("7"))
                 {
-                    throw new ArgumentException("Номер должен начинаться с 7!");
+                    throw new ArgumentException("The number must start with 7!");
                 }
 
                 if (value.ToString().Length != 11)
                 {
-                    throw new ArgumentException("Номер должен состоять из 11 цифр!");
+                    throw new ArgumentException("The number must be 11 digits!");
                 }
                 _number = value;
             }

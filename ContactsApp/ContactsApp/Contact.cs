@@ -117,7 +117,7 @@ namespace ContactsApp
 
                 if (value.Year < 1900 || value.Date > today || value == null)
                 {
-                    throw new ArgumentException(" Исправьте дату рождения ");
+                    throw new ArgumentException(" Correct your date of birth ");
                 }
                 _birthday = value;
             }
@@ -132,11 +132,11 @@ namespace ContactsApp
         {
             if (string.IsNullOrEmpty(str))
             {
-                throw new ArgumentException("Ошибка. Пустая строка");
+                throw new ArgumentException("Error. Empty line");
             }
             if (str.Length > length)
             {
-                throw new ArgumentException("Длина не должна превышать " + length + "символов");
+                throw new ArgumentException("Length should not exceed " + length + "characters");
             }
 
         }

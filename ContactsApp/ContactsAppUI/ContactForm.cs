@@ -86,32 +86,32 @@ namespace ContactsAppUI
 
             if ((SurnameTextBox.BackColor == IncorrectValue) || (SurnameTextBox.Text == ""))
             {
-                inputError = inputError + "incorrect surname.\n";
+                inputError = inputError + "incorrect surname: it should be less than 50 characters or it's empty.\n";
             }
 
             if ((NameTextBox.BackColor == IncorrectValue) || (NameTextBox.Text == ""))
             {
-                inputError = inputError + "incorrect name.\n";
+                inputError = inputError + "incorrect name : it should be less than 50 character or it's empty.\n";
             }
 
             if (DateBirthDay.BackColor == IncorrectValue)
-            {
-                inputError = inputError + "incorrect date.\n";
+            { 
+                inputError = inputError + "incorrect date cannot be further than current, earlier than 1900 and empty.\n";
             }
 
             if ((PhoneTextBox.BackColor == IncorrectValue) || (PhoneTextBox.Text == ""))
             {
-                inputError = inputError + "incorrect phone.\n";
+                inputError = inputError + "incorrect phone: it cannot be empty or it should starts with 7.\n";
             }
 
             if ((EmailTextBox.BackColor == IncorrectValue) || (EmailTextBox.Text == ""))
             {
-                inputError = inputError + "incorrect e-mail.\n";
+                inputError = inputError + "incorrect e-mail: it should contain @ or it's empty.\n";
             }
 
             if ((VKTextBox.BackColor == IncorrectValue) || (VKTextBox.Text == ""))
             {
-                inputError = inputError + "incorrect vk.com.";
+                inputError = inputError + "incorrect vk.com:  it should be less than 15 characters or it's empty.";
             }
 
             if (inputError != "Error list:\n")
