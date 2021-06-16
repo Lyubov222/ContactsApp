@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace ContactsApp.UnitTests
-{ 
+{
     /// <summary>
     /// Тестирование класса сериализации и десериализации
     /// </summary>
@@ -19,10 +19,16 @@ namespace ContactsApp.UnitTests
         {
             get
             {
+                //var location = Assembly.GetExecutingAssembly().Location;
+                //location = location.Replace("\\ContactsApp.UnitTests\\", "\\TestData\\");
+                //return location;
+
+                //ВОТ ЭТО ДОЛЖНО БЫЛО РАБОТАТЬ
                 var location = Assembly.GetExecutingAssembly().Location;
                 location = Path.GetDirectoryName(location);
                 location += "\\TestData\\";
                 return location;
+
             }
         }
 
@@ -63,7 +69,7 @@ namespace ContactsApp.UnitTests
 
             //Act
             var actualProject = ProjectManager.LoadFromFile(Location, "correctproject.json");
-            
+
             //Assert
             Assert.Multiple(() =>
             {
@@ -76,7 +82,7 @@ namespace ContactsApp.UnitTests
                 }
             });
         }
-         
+
         [TestCase(Description = "Негативный тест загрузки", TestName = "Загрузка некорректного файла")]
         public void ProjectManager_LoadIncorrectData_FileLoadIncorrectly()
         {
@@ -87,7 +93,7 @@ namespace ContactsApp.UnitTests
             var actualProject = ProjectManager.LoadFromFile(Location, "incorrectproject.json");
 
             //Assert
-            Assert.IsNotNull(actualProject);            
+            Assert.IsNotNull(actualProject);
             Assert.AreEqual(expectedCount, actualProject.Contacts.Count);
         }
 

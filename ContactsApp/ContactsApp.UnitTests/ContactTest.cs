@@ -1,4 +1,4 @@
-using NUnit.Framework;
+п»їusing NUnit.Framework;
 using ContactsApp;
 using System;
 
@@ -8,42 +8,42 @@ namespace ContactsApp.UnitTests
     public class ContactTest
     {
 
-        [Test(Description = "Позитивный тест геттера Surname")]
+        [Test(Description = "РџРѕР·РёС‚РёРІРЅС‹Р№ С‚РµСЃС‚ РіРµС‚С‚РµСЂР° Surname")]
         public void TestSurnameGet_CorrectValue()
         {
             // SetUp
             var _testContact = new Contact();
-            var expected = "Степанов";
+            var expected = "РЎС‚РµРїР°РЅРѕРІ";
             _testContact.Surname = expected;
 
             //Act
             var actual = _testContact.Surname;
 
             //Assert
-            Assert.AreEqual(expected, actual, "Геттер Surname возвращает неправильную фамилию");
+            Assert.AreEqual(expected, actual, "Р“РµС‚С‚РµСЂ Surname РІРѕР·РІСЂР°С‰Р°РµС‚ РЅРµРїСЂР°РІРёР»СЊРЅСѓСЋ С„Р°РјРёР»РёСЋ");
         }
 
-        [Test(Description = "Позитивный тест сеттера Surname")]
+        [Test(Description = "РџРѕР·РёС‚РёРІРЅС‹Р№ С‚РµСЃС‚ СЃРµС‚С‚РµСЂР° Surname")]
         public void TestSurnameSet_CorrectValue()
         {
             //SetUp
             var _testContact = new Contact();
-            _testContact.Surname = "Петров";
+            _testContact.Surname = "РџРµС‚СЂРѕРІ";
 
             //Act
             var actual = _testContact.Surname;
 
             //Assert
-            Assert.AreEqual(actual, _testContact.Surname, "Сеттер неправильно заполнил фамилию");
+            Assert.AreEqual(actual, _testContact.Surname, "РЎРµС‚С‚РµСЂ РЅРµРїСЂР°РІРёР»СЊРЅРѕ Р·Р°РїРѕР»РЅРёР» С„Р°РјРёР»РёСЋ");
         }
 
-        [TestCase("", "Должно возникать исключение, если фамилия - пустая строка",
-            TestName = "Присвоение пустой строки в качестве фамилии")]
-        [TestCase("Степанов-Степанов-Степанов-Степанов-Степанов-Степанов-Степанов-Степанов-Степанов-Степанов",
-            "Должно возникать исключение, если фамилия длиннее 50 символов",
-            TestName = "Присвоение неправильной фамилии больше 50 символов")]
+        [TestCase("", "Р”РѕР»Р¶РЅРѕ РІРѕР·РЅРёРєР°С‚СЊ РёСЃРєР»СЋС‡РµРЅРёРµ, РµСЃР»Рё С„Р°РјРёР»РёСЏ - РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°",
+            TestName = "РџСЂРёСЃРІРѕРµРЅРёРµ РїСѓСЃС‚РѕР№ СЃС‚СЂРѕРєРё РІ РєР°С‡РµСЃС‚РІРµ С„Р°РјРёР»РёРё")]
+        [TestCase("РЎС‚РµРїР°РЅРѕРІ-РЎС‚РµРїР°РЅРѕРІ-РЎС‚РµРїР°РЅРѕРІ-РЎС‚РµРїР°РЅРѕРІ-РЎС‚РµРїР°РЅРѕРІ-РЎС‚РµРїР°РЅРѕРІ-РЎС‚РµРїР°РЅРѕРІ-РЎС‚РµРїР°РЅРѕРІ-РЎС‚РµРїР°РЅРѕРІ-РЎС‚РµРїР°РЅРѕРІ",
+            "Р”РѕР»Р¶РЅРѕ РІРѕР·РЅРёРєР°С‚СЊ РёСЃРєР»СЋС‡РµРЅРёРµ, РµСЃР»Рё С„Р°РјРёР»РёСЏ РґР»РёРЅРЅРµРµ 50 СЃРёРјРІРѕР»РѕРІ",
+            TestName = "РџСЂРёСЃРІРѕРµРЅРёРµ РЅРµРїСЂР°РІРёР»СЊРЅРѕР№ С„Р°РјРёР»РёРё Р±РѕР»СЊС€Рµ 50 СЃРёРјРІРѕР»РѕРІ")]
 
-        [Test(Description = "Негативный тест геттера Surname")]
+        [Test(Description = "РќРµРіР°С‚РёРІРЅС‹Р№ С‚РµСЃС‚ РіРµС‚С‚РµСЂР° Surname")]
         public void TestSurnameSet_ArgumentException(string wrongSurname, string message)
         {
             //SetUp
@@ -55,40 +55,40 @@ namespace ContactsApp.UnitTests
                 message);
         }
 
-        [Test(Description = "Позитивный тест геттера Name")]
+        [Test(Description = "РџРѕР·РёС‚РёРІРЅС‹Р№ С‚РµСЃС‚ РіРµС‚С‚РµСЂР° Name")]
         public void TestNameGet_CorrectValue()
         {
             //SetUp
             var _testContact = new Contact();
-            var expected = "Степан";
+            var expected = "РЎС‚РµРїР°РЅ";
             _testContact.Name = expected;
 
             //Act
             var actual = _testContact.Name;
 
             //Assert
-            Assert.AreEqual(expected, actual, "Геттер Name возвращает неправильное имя");
+            Assert.AreEqual(expected, actual, "Р“РµС‚С‚РµСЂ Name РІРѕР·РІСЂР°С‰Р°РµС‚ РЅРµРїСЂР°РІРёР»СЊРЅРѕРµ РёРјСЏ");
         }
 
-        [Test(Description = "Позитивный тест сеттера Name")]
+        [Test(Description = "РџРѕР·РёС‚РёРІРЅС‹Р№ С‚РµСЃС‚ СЃРµС‚С‚РµСЂР° Name")]
         public void TestNameSet_CorrectValue()
         {
             //SetUp
             var _testContact = new Contact();
-            _testContact.Name = "Степан";
+            _testContact.Name = "РЎС‚РµРїР°РЅ";
 
             //Act
             var actual = _testContact.Name;
 
             //Assert
-            Assert.AreEqual(actual, _testContact.Name, "Сеттер неправильно заполнил имя");
+            Assert.AreEqual(actual, _testContact.Name, "РЎРµС‚С‚РµСЂ РЅРµРїСЂР°РІРёР»СЊРЅРѕ Р·Р°РїРѕР»РЅРёР» РёРјСЏ");
         }
 
-        [TestCase("", "Должно возникать исключение, если имя - пустая строка",
-                   TestName = "Присвоение пустой строки в качестве имени")]
-        [TestCase("Степан-Степан-Степан-Степан-Степан-Степан-Степан-Степан-Степан-Степан",
-                   "Должно возникать исключение, если имя длиннее 50 символов",
-                   TestName = "Присвоение неправильного имени больше 50 символов")]
+        [TestCase("", "Р”РѕР»Р¶РЅРѕ РІРѕР·РЅРёРєР°С‚СЊ РёСЃРєР»СЋС‡РµРЅРёРµ, РµСЃР»Рё РёРјСЏ - РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°",
+                   TestName = "РџСЂРёСЃРІРѕРµРЅРёРµ РїСѓСЃС‚РѕР№ СЃС‚СЂРѕРєРё РІ РєР°С‡РµСЃС‚РІРµ РёРјРµРЅРё")]
+        [TestCase("РЎС‚РµРїР°РЅ-РЎС‚РµРїР°РЅ-РЎС‚РµРїР°РЅ-РЎС‚РµРїР°РЅ-РЎС‚РµРїР°РЅ-РЎС‚РµРїР°РЅ-РЎС‚РµРїР°РЅ-РЎС‚РµРїР°РЅ-РЎС‚РµРїР°РЅ-РЎС‚РµРїР°РЅ",
+                   "Р”РѕР»Р¶РЅРѕ РІРѕР·РЅРёРєР°С‚СЊ РёСЃРєР»СЋС‡РµРЅРёРµ, РµСЃР»Рё РёРјСЏ РґР»РёРЅРЅРµРµ 50 СЃРёРјРІРѕР»РѕРІ",
+                   TestName = "РџСЂРёСЃРІРѕРµРЅРёРµ РЅРµРїСЂР°РІРёР»СЊРЅРѕРіРѕ РёРјРµРЅРё Р±РѕР»СЊС€Рµ 50 СЃРёРјРІРѕР»РѕРІ")]
         public void TestNameSet_ArgumentException(string wrongName, string message)
         {
             //SetUp
@@ -100,7 +100,7 @@ namespace ContactsApp.UnitTests
             message);
         }
 
-        [Test(Description = "Позитивный тест геттера Email")]
+        [Test(Description = "РџРѕР·РёС‚РёРІРЅС‹Р№ С‚РµСЃС‚ РіРµС‚С‚РµСЂР° Email")]
         public void TestMailGet_CorrectValue()
         {
             //SetUP
@@ -112,10 +112,10 @@ namespace ContactsApp.UnitTests
             var actual = _testContact.Email;
 
             //Assert
-            Assert.AreEqual(expected, actual, "Геттер Email возвращает неправильную почту");
+            Assert.AreEqual(expected, actual, "Р“РµС‚С‚РµСЂ Email РІРѕР·РІСЂР°С‰Р°РµС‚ РЅРµРїСЂР°РІРёР»СЊРЅСѓСЋ РїРѕС‡С‚Сѓ");
         }
 
-        [Test(Description = "Позитивный тест сеттера Email")]
+        [Test(Description = "РџРѕР·РёС‚РёРІРЅС‹Р№ С‚РµСЃС‚ СЃРµС‚С‚РµСЂР° Email")]
         public void TestMailSet_CorrectValue()
         {
             //SetUp
@@ -126,15 +126,15 @@ namespace ContactsApp.UnitTests
             var actual = _testContact.Email;
 
             //Assert
-            Assert.AreEqual(actual, _testContact.Email, "Сеттер неправильно заполнил почту");
+            Assert.AreEqual(actual, _testContact.Email, "РЎРµС‚С‚РµСЂ РЅРµРїСЂР°РІРёР»СЊРЅРѕ Р·Р°РїРѕР»РЅРёР» РїРѕС‡С‚Сѓ");
         }
 
         [TestCase("",
-         "Должно возникать исключение, если Email - пустая строка",
-         TestName = "Присвоение пустой строки в качестве почты")]
+         "Р”РѕР»Р¶РЅРѕ РІРѕР·РЅРёРєР°С‚СЊ РёСЃРєР»СЋС‡РµРЅРёРµ, РµСЃР»Рё Email - РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°",
+         TestName = "РџСЂРёСЃРІРѕРµРЅРёРµ РїСѓСЃС‚РѕР№ СЃС‚СЂРѕРєРё РІ РєР°С‡РµСЃС‚РІРµ РїРѕС‡С‚С‹")]
         [TestCase("12345678901234567890123456789012345689012345678901234567890@mail.ru",
-         "Должно возникать исключение, если почта больше 50 символов",
-         TestName = "Присвоение неправильной почты больше 50 символов")]
+         "Р”РѕР»Р¶РЅРѕ РІРѕР·РЅРёРєР°С‚СЊ РёСЃРєР»СЋС‡РµРЅРёРµ, РµСЃР»Рё РїРѕС‡С‚Р° Р±РѕР»СЊС€Рµ 50 СЃРёРјРІРѕР»РѕРІ",
+         TestName = "РџСЂРёСЃРІРѕРµРЅРёРµ РЅРµРїСЂР°РІРёР»СЊРЅРѕР№ РїРѕС‡С‚С‹ Р±РѕР»СЊС€Рµ 50 СЃРёРјРІРѕР»РѕРІ")]
         public void TestMailSet_ArgumentException(string wrongEmail, string message)
         {
             //?SetUp
@@ -146,7 +146,7 @@ namespace ContactsApp.UnitTests
                 message);
         }
 
-        [Test(Description = "Позитивный тест геттера IDVk")]
+        [Test(Description = "РџРѕР·РёС‚РёРІРЅС‹Р№ С‚РµСЃС‚ РіРµС‚С‚РµСЂР° IDVk")]
         public void TestIdVkGet_CorrectValue()
         {
             //SetUp
@@ -158,10 +158,10 @@ namespace ContactsApp.UnitTests
             var actual = _testContact.IDVk;
 
             //Assert
-            Assert.AreEqual(expected, actual, "Геттер IDVk возвращает неправильный  idvk");
+            Assert.AreEqual(expected, actual, "Р“РµС‚С‚РµСЂ IDVk РІРѕР·РІСЂР°С‰Р°РµС‚ РЅРµРїСЂР°РІРёР»СЊРЅС‹Р№  idvk");
         }
 
-        [Test(Description = "Позитивный тест сеттера IDVk")]
+        [Test(Description = "РџРѕР·РёС‚РёРІРЅС‹Р№ С‚РµСЃС‚ СЃРµС‚С‚РµСЂР° IDVk")]
         public void TestIdVkSet_CorrectValue()
         {
             //SetUp
@@ -172,15 +172,15 @@ namespace ContactsApp.UnitTests
             var actual = _testContact.IDVk;
 
             //Assert
-            Assert.AreEqual(actual, _testContact.IDVk, "Сеттер неправильно заполнил idVk");
+            Assert.AreEqual(actual, _testContact.IDVk, "РЎРµС‚С‚РµСЂ РЅРµРїСЂР°РІРёР»СЊРЅРѕ Р·Р°РїРѕР»РЅРёР» idVk");
         }
 
         [TestCase("",
-           "Должно возникать исключение, если IDVk - пустая строка",
-           TestName = "Присвоение пустой строки в качестве IDVk")]
+           "Р”РѕР»Р¶РЅРѕ РІРѕР·РЅРёРєР°С‚СЊ РёСЃРєР»СЋС‡РµРЅРёРµ, РµСЃР»Рё IDVk - РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°",
+           TestName = "РџСЂРёСЃРІРѕРµРЅРёРµ РїСѓСЃС‚РѕР№ СЃС‚СЂРѕРєРё РІ РєР°С‡РµСЃС‚РІРµ IDVk")]
         [TestCase("id12345678901234567890",
-           "Должно возникать исключение, если IDVk > 15 символов",
-           TestName = "Присвоение неправильной даты больше текущей")]
+           "Р”РѕР»Р¶РЅРѕ РІРѕР·РЅРёРєР°С‚СЊ РёСЃРєР»СЋС‡РµРЅРёРµ, РµСЃР»Рё IDVk > 15 СЃРёРјРІРѕР»РѕРІ",
+           TestName = "РџСЂРёСЃРІРѕРµРЅРёРµ РЅРµРїСЂР°РІРёР»СЊРЅРѕР№ РґР°С‚С‹ Р±РѕР»СЊС€Рµ С‚РµРєСѓС‰РµР№")]
         public void TestIdVKSet_ArgumentException(string wrongIdVk, string message)
         {
             //SetUp
@@ -192,7 +192,7 @@ namespace ContactsApp.UnitTests
                 message);
         }
 
-        [Test(Description = "Позитивный тест геттера BirthDay")]
+        [Test(Description = "РџРѕР·РёС‚РёРІРЅС‹Р№ С‚РµСЃС‚ РіРµС‚С‚РµСЂР° BirthDay")]
         public void TestDateGet_CorrectValue()
         {
             //SetUp
@@ -204,10 +204,10 @@ namespace ContactsApp.UnitTests
             var actual = _testContact.Birthday;
 
             //Assert
-            Assert.AreEqual(expected.Year, actual.Year, "Геттер BirthDay возвращает неправильную дату");
+            Assert.AreEqual(expected.Year, actual.Year, "Р“РµС‚С‚РµСЂ BirthDay РІРѕР·РІСЂР°С‰Р°РµС‚ РЅРµРїСЂР°РІРёР»СЊРЅСѓСЋ РґР°С‚Сѓ");
         }
 
-        [Test(Description = "Позитивный тест сеттера BirthDay")]
+        [Test(Description = "РџРѕР·РёС‚РёРІРЅС‹Р№ С‚РµСЃС‚ СЃРµС‚С‚РµСЂР° BirthDay")]
         public void TestDateSet_CorrectValue()
         {
             //SetUp
@@ -218,17 +218,17 @@ namespace ContactsApp.UnitTests
             var actual = _testContact.Birthday;
 
             //Assert
-            Assert.AreEqual(actual, _testContact.Birthday, "Сеттер неправильно заполнил дату");
+            Assert.AreEqual(actual, _testContact.Birthday, "РЎРµС‚С‚РµСЂ РЅРµРїСЂР°РІРёР»СЊРЅРѕ Р·Р°РїРѕР»РЅРёР» РґР°С‚Сѓ");
         }
 
         [TestCase("1899, 1, 5",
-            "Должно возникать исключение, если год меньше 1900",
-            TestName = "Присвоение неправильной даты меньше 1900")]
-        [TestCase(null, "Должно возникать исключение, если дата - пустая строка",
-            TestName = "Присвоение путой строки")]
+            "Р”РѕР»Р¶РЅРѕ РІРѕР·РЅРёРєР°С‚СЊ РёСЃРєР»СЋС‡РµРЅРёРµ, РµСЃР»Рё РіРѕРґ РјРµРЅСЊС€Рµ 1900",
+            TestName = "РџСЂРёСЃРІРѕРµРЅРёРµ РЅРµРїСЂР°РІРёР»СЊРЅРѕР№ РґР°С‚С‹ РјРµРЅСЊС€Рµ 1900")]
+        [TestCase(null, "Р”РѕР»Р¶РЅРѕ РІРѕР·РЅРёРєР°С‚СЊ РёСЃРєР»СЋС‡РµРЅРёРµ, РµСЃР»Рё РґР°С‚Р° - РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°",
+            TestName = "РџСЂРёСЃРІРѕРµРЅРёРµ РїСѓС‚РѕР№ СЃС‚СЂРѕРєРё")]
         [TestCase("2028, 1, 5",
-            "Должно возникать исключение, если год больше текущего",
-            TestName = "Присвоение неправильной даты больше текущей")]
+            "Р”РѕР»Р¶РЅРѕ РІРѕР·РЅРёРєР°С‚СЊ РёСЃРєР»СЋС‡РµРЅРёРµ, РµСЃР»Рё РіРѕРґ Р±РѕР»СЊС€Рµ С‚РµРєСѓС‰РµРіРѕ",
+            TestName = "РџСЂРёСЃРІРѕРµРЅРёРµ РЅРµРїСЂР°РІРёР»СЊРЅРѕР№ РґР°С‚С‹ Р±РѕР»СЊС€Рµ С‚РµРєСѓС‰РµР№")]
         public void TestDateSet_ArgumentException(DateTime wrongDate, string message)
         {
             //SetUp

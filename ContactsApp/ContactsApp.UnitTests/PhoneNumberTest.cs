@@ -6,7 +6,7 @@ namespace ContactsApp.UnitTests
     /// <summary>
     /// Класс тестов для тестирования PhoneNumber
     /// </summary> 
-    public class PhoneNumberTest
+    public class PhoneNumberTest 
     {
 
         [Test(Description = "Позитивный тест геттера Number")]
@@ -37,7 +37,7 @@ namespace ContactsApp.UnitTests
             //Assert
             Assert.AreEqual(actual, _testNumber.Number, "Сеттер неправильно заполнил номер");
         }
-        
+
         [TestCase(null, "Должно возникать исключение, если телефон - пустая строка",
             TestName = "Присвоение пустой строки в качестве номера")]
         [TestCase(789, "Должно возникать исключение, если номер короче 11 символов",
