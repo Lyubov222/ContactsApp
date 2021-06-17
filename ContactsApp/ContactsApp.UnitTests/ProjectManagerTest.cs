@@ -4,7 +4,7 @@ using System.Reflection;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace ContactsApp.UnitTests
+namespace ContactsApp.UnitTests 
 {
     /// <summary>
     /// Тестирование класса сериализации и десериализации
@@ -19,11 +19,6 @@ namespace ContactsApp.UnitTests
         {
             get
             {
-                //var location = Assembly.GetExecutingAssembly().Location;
-                //location = location.Replace("\\ContactsApp.UnitTests\\", "\\TestData\\");
-                //return location;
-
-                //ВОТ ЭТО ДОЛЖНО БЫЛО РАБОТАТЬ
                 var location = Assembly.GetExecutingAssembly().Location;
                 location = Path.GetDirectoryName(location);
                 location += "\\TestData\\";

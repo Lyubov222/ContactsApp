@@ -68,7 +68,7 @@ namespace ContactsAppUI
             {
                 var contact = FindTextBox.Text == String.Empty
                     ? _project.Contacts[selectedIndex]
-                    : _findedContacts[selectedIndex];
+                    : _findedContacts[selectedIndex]; 
 
                 NameTextBox.Text = contact.Name;
                 SurnameTextBox.Text = contact.Surname;
