@@ -12,7 +12,7 @@ namespace ContactsApp.UnitTests
     [TestFixture]
     class ProjectManagerTest
     {
-        /// <summary>
+        /// <summary> 
         /// путь к файлу 
         /// </summary>
         public string Location

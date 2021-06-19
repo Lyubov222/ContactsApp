@@ -96,7 +96,7 @@ namespace ContactsAppUI
                 _findedContacts.Add(t);
             }
             DisplayInfortstion();
-            FormListBirthday();
+            FormListBirthday(); 
             SaveProject();
         }
 
