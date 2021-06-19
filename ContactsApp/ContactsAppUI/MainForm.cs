@@ -194,7 +194,7 @@ namespace ContactsAppUI
             };
             form.ShowDialog();
             if (form.Contact == null)
-            {
+            { 
                 return;
             }
             var selectedContact = _findedContacts[selectedIndex];
