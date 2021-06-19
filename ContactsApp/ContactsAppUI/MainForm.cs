@@ -214,6 +214,7 @@ namespace ContactsAppUI
                 ClearInfomationContact();
        
             }
+            FindTextBox.Text = "";
         }
 
         /// <summary>
