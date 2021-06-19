@@ -13,12 +13,12 @@ namespace ContactsApp.UnitTests
         public void TestNumberGet_CorrectValue()
         {
             //SetUpp
-            var _testNumber = new PhoneNumber();
+            var testNumber = new PhoneNumber();
             var expected = 79531817562;
-            _testNumber.Number = expected;
+            testNumber.Number = expected;
 
             //Act
-            var actual = _testNumber.Number;
+            var actual = testNumber.Number;
 
             //Assert
             Assert.AreEqual(expected, actual, "Геттер Number возвращает неправильный номер");
@@ -28,14 +28,14 @@ namespace ContactsApp.UnitTests
         public void TestNumberSet_CorrectValue()
         {
             //SetUp
-            var _testNumber = new PhoneNumber();
-            _testNumber.Number = 79523658444;
+            var testNumber = new PhoneNumber();
+            testNumber.Number = 79523658444;
 
             //Act
-            var actual = _testNumber.Number;
+            var actual = testNumber.Number;
 
             //Assert
-            Assert.AreEqual(actual, _testNumber.Number, "Сеттер неправильно заполнил номер");
+            Assert.AreEqual(actual, testNumber.Number, "Сеттер неправильно заполнил номер");
         }
 
         [TestCase(null, "Должно возникать исключение, если телефон - пустая строка",
@@ -49,11 +49,11 @@ namespace ContactsApp.UnitTests
         public void TestNumberSet_ArgumentException(long wrongNumber, string message)
         {
             //SetUp
-            var _testNumber = new PhoneNumber();
+            var testNumber = new PhoneNumber();
 
             //Assert
             Assert.Throws<ArgumentException>(
-                () => { _testNumber.Number = wrongNumber; }, message);
+                () => { testNumber.Number = wrongNumber; }, message);
         }
     }
 }

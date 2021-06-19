@@ -12,12 +12,12 @@ namespace ContactsApp.UnitTests
         public void TestSurnameGet_CorrectValue()
         {
             // SetUp
-            var _testContact = new Contact();
+            var testContact = new Contact();
             var expected = "Степанов";
-            _testContact.Surname = expected;
+            testContact.Surname = expected;
 
             //Act
-            var actual = _testContact.Surname;
+            var actual = testContact.Surname;
 
             //Assert
             Assert.AreEqual(expected, actual, "Геттер Surname возвращает неправильную фамилию");
@@ -27,14 +27,14 @@ namespace ContactsApp.UnitTests
         public void TestSurnameSet_CorrectValue()
         {
             //SetUp
-            var _testContact = new Contact();
-            _testContact.Surname = "Петров";
+            var testContact = new Contact();
+            testContact.Surname = "Петров";
 
             //Act
-            var actual = _testContact.Surname;
+            var actual = testContact.Surname;
 
             //Assert
-            Assert.AreEqual(actual, _testContact.Surname, "Сеттер неправильно заполнил фамилию");
+            Assert.AreEqual(actual, testContact.Surname, "Сеттер неправильно заполнил фамилию");
         }
 
         [TestCase("", "Должно возникать исключение, если фамилия - пустая строка",
@@ -47,11 +47,11 @@ namespace ContactsApp.UnitTests
         public void TestSurnameSet_ArgumentException(string wrongSurname, string message)
         {
             //SetUp
-            var _testContact = new Contact();
+            var testContact = new Contact();
 
             //Assert
             Assert.Throws<ArgumentException>(
-                () => { _testContact.Surname = wrongSurname; },
+                () => { testContact.Surname = wrongSurname; },
                 message);
         }
 
@@ -59,12 +59,12 @@ namespace ContactsApp.UnitTests
         public void TestNameGet_CorrectValue()
         {
             //SetUp
-            var _testContact = new Contact();
+            var testContact = new Contact();
             var expected = "Степан";
-            _testContact.Name = expected;
+            testContact.Name = expected;
 
             //Act
-            var actual = _testContact.Name;
+            var actual = testContact.Name;
 
             //Assert
             Assert.AreEqual(expected, actual, "Геттер Name возвращает неправильное имя");
@@ -74,14 +74,14 @@ namespace ContactsApp.UnitTests
         public void TestNameSet_CorrectValue()
         {
             //SetUp
-            var _testContact = new Contact();
-            _testContact.Name = "Степан";
+            var testContact = new Contact();
+            testContact.Name = "Степан";
 
             //Act
-            var actual = _testContact.Name;
+            var actual = testContact.Name;
 
             //Assert
-            Assert.AreEqual(actual, _testContact.Name, "Сеттер неправильно заполнил имя");
+            Assert.AreEqual(actual, testContact.Name, "Сеттер неправильно заполнил имя");
         }
 
         [TestCase("", "Должно возникать исключение, если имя - пустая строка",
@@ -92,11 +92,11 @@ namespace ContactsApp.UnitTests
         public void TestNameSet_ArgumentException(string wrongName, string message)
         {
             //SetUp
-            var _testContact = new Contact();
+            var testContact = new Contact();
 
             //Assert
             Assert.Throws<ArgumentException>(
-            () => { _testContact.Name = wrongName; },
+            () => { testContact.Name = wrongName; },
             message);
         }
 
@@ -104,12 +104,12 @@ namespace ContactsApp.UnitTests
         public void TestMailGet_CorrectValue()
         {
             //SetUP
-            var _testContact = new Contact();
+            var testContact = new Contact();
             var expected = "lyubov.pan2000@mail.ru";
-            _testContact.Email = expected;
+            testContact.Email = expected;
 
             //Act
-            var actual = _testContact.Email;
+            var actual = testContact.Email;
 
             //Assert
             Assert.AreEqual(expected, actual, "Геттер Email возвращает неправильную почту");
@@ -119,14 +119,14 @@ namespace ContactsApp.UnitTests
         public void TestMailSet_CorrectValue()
         {
             //SetUp
-            var _testContact = new Contact();
-            _testContact.Email = "lyubov.pan2000@mail.ru";
+            var testContact = new Contact();
+            testContact.Email = "lyubov.pan2000@mail.ru";
 
             //Act
-            var actual = _testContact.Email;
+            var actual = testContact.Email;
 
             //Assert
-            Assert.AreEqual(actual, _testContact.Email, "Сеттер неправильно заполнил почту");
+            Assert.AreEqual(actual, testContact.Email, "Сеттер неправильно заполнил почту");
         }
 
         [TestCase("",
@@ -138,11 +138,11 @@ namespace ContactsApp.UnitTests
         public void TestMailSet_ArgumentException(string wrongEmail, string message)
         {
             //?SetUp
-            var _testContact = new Contact();
+            var testContact = new Contact();
 
             //Assert
             Assert.Throws<ArgumentException>(
-                () => { _testContact.Email = wrongEmail; },
+                () => { testContact.Email = wrongEmail; },
                 message);
         }
 
@@ -150,12 +150,12 @@ namespace ContactsApp.UnitTests
         public void TestIdVkGet_CorrectValue()
         {
             //SetUp
-            var _testContact = new Contact();
+            var testContact = new Contact();
             var expected = "id777777";
-            _testContact.IDVk = expected;
+            testContact.IDVk = expected;
 
             //Act
-            var actual = _testContact.IDVk;
+            var actual = testContact.IDVk;
 
             //Assert
             Assert.AreEqual(expected, actual, "Геттер IDVk возвращает неправильный  idvk");
@@ -165,14 +165,14 @@ namespace ContactsApp.UnitTests
         public void TestIdVkSet_CorrectValue()
         {
             //SetUp
-            var _testContact = new Contact();
-            _testContact.IDVk = "abracadab.id";
+            var testContact = new Contact();
+            testContact.IDVk = "abracadab.id";
 
             //Act
-            var actual = _testContact.IDVk;
+            var actual = testContact.IDVk;
 
             //Assert
-            Assert.AreEqual(actual, _testContact.IDVk, "Сеттер неправильно заполнил idVk");
+            Assert.AreEqual(actual, testContact.IDVk, "Сеттер неправильно заполнил idVk");
         }
 
         [TestCase("",
@@ -184,11 +184,11 @@ namespace ContactsApp.UnitTests
         public void TestIdVKSet_ArgumentException(string wrongIdVk, string message)
         {
             //SetUp
-            var _testContact = new Contact();
+            var testContact = new Contact();
 
             //Assert
             Assert.Throws<ArgumentException>(
-                () => { _testContact.IDVk = wrongIdVk; },
+                () => { testContact.IDVk = wrongIdVk; },
                 message);
         }
 
@@ -196,12 +196,12 @@ namespace ContactsApp.UnitTests
         public void TestDateGet_CorrectValue()
         {
             //SetUp
-            var _testContact = new Contact();
+            var testContact = new Contact();
             DateTime expected = new DateTime(2000, 8, 30);
-            _testContact.Birthday = expected;
+            testContact.Birthday = expected;
 
             //Act
-            var actual = _testContact.Birthday;
+            var actual = testContact.Birthday;
 
             //Assert
             Assert.AreEqual(expected.Year, actual.Year, "Геттер BirthDay возвращает неправильную дату");
@@ -211,14 +211,14 @@ namespace ContactsApp.UnitTests
         public void TestDateSet_CorrectValue()
         {
             //SetUp
-            var _testContact = new Contact();
-            _testContact.Birthday = new DateTime(2000, 5, 20);
+            var testContact = new Contact();
+            testContact.Birthday = new DateTime(2000, 5, 20);
 
             //Act
-            var actual = _testContact.Birthday;
+            var actual = testContact.Birthday;
 
             //Assert
-            Assert.AreEqual(actual, _testContact.Birthday, "Сеттер неправильно заполнил дату");
+            Assert.AreEqual(actual, testContact.Birthday, "Сеттер неправильно заполнил дату");
         }
 
         [TestCase("1899, 1, 5",
@@ -232,11 +232,11 @@ namespace ContactsApp.UnitTests
         public void TestDateSet_ArgumentException(DateTime wrongDate, string message)
         {
             //SetUp
-            var _testContact = new Contact();
+            var testContact = new Contact();
 
             //Assert
             Assert.Throws<ArgumentException>(
-                () => { _testContact.Birthday = wrongDate; },
+                () => { testContact.Birthday = wrongDate; },
                 message);
         }
     }
