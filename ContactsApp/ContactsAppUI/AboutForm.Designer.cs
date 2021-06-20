@@ -128,9 +128,12 @@ namespace ContactsAppUI
             this.Controls.Add(this.AuthorAboutLabel);
             this.Controls.Add(this.VersionLabel);
             this.Controls.Add(this.ContactsAppLabel);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(410, 380);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(410, 380);
             this.Name = "AboutForm";
+            this.ShowIcon = false;
             this.Text = "AboutForm";
             this.ResumeLayout(false);
             this.PerformLayout();

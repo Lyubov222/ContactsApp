@@ -65,7 +65,7 @@ namespace ContactsApp
             var serializer = new JsonSerializer()
             {
                 Formatting = Formatting.Indented,
-                TypeNameHandling = TypeNameHandling.All
+                TypeNameHandling = TypeNameHandling.All 
             };
             try
             {

@@ -51,7 +51,7 @@ namespace ContactsApp
 
             set
             {
-                AssetLength(value, 50);
+                AssertLength(value, 50);
                 _surname = value.ToUpper()[0] + value.Substring(1);
             }
         }
@@ -66,7 +66,7 @@ namespace ContactsApp
 
             set
             {
-                AssetLength(value, 50);
+                AssertLength(value, 50);
                 _name = value.ToUpper()[0] + value.Substring(1);
             }
         }
@@ -80,7 +80,7 @@ namespace ContactsApp
 
             set 
             { 
-                AssetLength(value, 50);
+                AssertLength(value, 50);
                 if(!value.Contains("@"))
                 {
                     throw new ArgumentException("E-mail must contains @.");
@@ -99,7 +99,7 @@ namespace ContactsApp
             
             set
             {
-                AssetLength(value, 15);
+                AssertLength(value, 15);
                 _IDvk = value;
             }
         }
@@ -128,7 +128,7 @@ namespace ContactsApp
         /// </summary>
         /// <param name="str">Принимаемая строка</param>
         /// <param name="length"">длина строки</param>
-        void AssetLength (string str, int length)
+        void AssertLength (string str, int length)
         {
             if (string.IsNullOrEmpty(str))
             {
