@@ -12,12 +12,12 @@ namespace ContactsApp
     public class Contact : ICloneable
     {
         /// <summary>
-        /// Фамилия
+        /// Фамилия пользователя
         /// </summary> 
         private string _surname;
 
         /// <summary>
-        /// Имя
+        /// Имя пользователя
         /// </summary>
         private string _name;
 
